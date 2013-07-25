@@ -1,0 +1,67 @@
+<%= form_for @image, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :author, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :author, :class => 'text_field' %>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <%= f.label :imagetype, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imagetype, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :local, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :local, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fileidentifier, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fileidentifier, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :category, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :date_start, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date_start, :class => 'date_select' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :path_to_image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :path_to_image, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                images_path, :class => 'btn' %>
+  </div>
+<% end %>

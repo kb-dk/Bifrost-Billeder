@@ -1,0 +1,56 @@
+<%- model_class = Image -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:author) %></th>
+
+      <th><%= model_class.human_attribute_name(:local) %></th>
+      <th><%= model_class.human_attribute_name(:fileidentifier) %></th>
+      <th><%= model_class.human_attribute_name(:category) %></th>
+
+      <th><%= model_class.human_attribute_name(:date_start) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:path_to_image) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= link_to image.id, image_path(image) %></td>
+        <td><%= image.title %></td>
+        <td><%= image.author %></td>
+        <td><%= image.local %></td>
+        <td><%= image.fileidentifier %></td>
+        <td><%= image.category %></td>
+
+        <td><%= image.date_start %></td>
+
+        <td><%= image.description %></td>
+        <td><%= if image.path_to_image.to_s.strip.length != 0
+                  image_tag ("http://www.kb.dk/imageService/w110/"+image.path_to_image.sub('.tif', ".jpg"))
+                end
+        %></td>
+
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_image_path(image), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      image_path(image),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_image_path,
+            :class => 'btn btn-primary' %>

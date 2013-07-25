@@ -1,0 +1,48 @@
+<div id="content" class="span9 show-document">
+
+
+
+   
+<% @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name) %>
+
+
+<%# this should be in a partial -%>
+<div id="document" class="<%= render_document_class %>">
+  <div id="doc_<%= @document.id.to_s.parameterize %>">
+
+    <p><%= if @document["path_to_image_ssm"].first.to_s.strip.length != 0
+             image_tag ("http://www.kb.dk/imageService/w850/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg"))
+           end
+    %></p>
+    <% # bookmark/folder functions -%>
+    <%= render_document_heading(:h1).html_safe %>
+
+    <div class="document">
+
+
+      <%= render_document_partial @document, :show %>
+    </div>
+
+   
+  </div>
+</div>
+  <%= render 'previous_next_doc' %>
+  <% extra_head_content << render_link_rel_alternates %>
+  <% sidebar_items << render_document_sidebar_partial %>
+
+  <% if @document.respond_to?(:export_as_openurl_ctx_kev) %>
+    <!-- 
+         // COinS, for Zotero among others. 
+         // This document_partial_name(@document) business is not quite right,
+         // but has been there for a while. 
+    -->
+    <span class="Z3988" title="<%= @document.export_as_openurl_ctx_kev(document_partial_name(@document)) %>"></span>
+  <% end %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_image_path(@document.id), :class => 'btn' %>
+</div>
+
+<!--div id="sidebar" class="span3">
+   <% #render_document_sidebar_partial  %>
+</div-->
+<!--/span -->
