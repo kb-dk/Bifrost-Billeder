@@ -1,3 +1,10 @@
+<script>
+    $('#historik').click(function() {
+        $('#vishistorikken').toggle('slow', function() {
+            // Animation complete.
+        });
+    });
+  </script>
 <%- model_class = Image -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -29,9 +36,63 @@
             image_tag ("http://www.kb.dk/imageService/w850/"+@image.path_to_image.sub('.tif', ".jpg"))
           end
       %></dd>
-
-
 </dl>
+
+  <h3 id="historik">Historik og Tidligere versioner</h3>
+  <div id="vishistorikken">
+    <dl class="dl-horizontal">
+  <dt><strong>Versioner:</strong></dt>
+  <dd><%= @image.descMetadata.versions.size %></dd>
+
+  <dt><strong>Nuværende version:</strong></dt>
+  <dd><%= @image.descMetadata.versionID %></dd>
+
+  <dt><strong>Sidst rettet:</strong></dt>
+  <dd><%= @image.descMetadata.dsCreateDate %></dd>
+</dl>
+
+  <% @image.descMetadata.versions.each do |image| %>
+      <h4><%= image.title.first %> - <%= image.asOfDateTime_was %></h4>
+
+      <div class="hero-unit">
+        <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+        <dd><%= image.title.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
+        <dd><%= image.author.first %></dd>
+
+
+        <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
+        <dd><%=  image.local %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
+        <dd><%= image.fileidentifier.first %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+        <dd><%= image.category %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
+        <dd><%= image.date_start.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:date_end) %>:</strong></dt>
+        <dd><%= image.date_end.first %></dd>
+
+
+        <dt><strong><%= model_class.human_attribute_name(:date_txt) %>:</strong></dt>
+        <dd><%= image.date_txt.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+        <dd><%= image.description.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:opstilling) %>:</strong></dt>
+        <dd><%= image.opstilling.first %></dd>
+
+
+        <dt><strong><%= model_class.human_attribute_name(:lcsh) %>:</strong></dt>
+        <dd><a href="http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %>">http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %></a></dd>
+  </div>
+  <% end %>
+
+
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

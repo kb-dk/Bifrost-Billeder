@@ -1,4 +1,5 @@
-class Image   < ActiveFedora::Base
+#class Image   < ActiveFedora::Base
+class Image   < BifrostObject
 
  # has_metadata :name=>'rightsMetadata', :type=> Hydra::Datastream::RightsMetadata
  # has_metadata :name=>'descMetadata', :type=>  Hydra::Datastream::ModsArticle
@@ -9,11 +10,17 @@ class Image   < ActiveFedora::Base
   #has_metadata 'descMetadata', type: ImageModsDatastream
   has_metadata 'descMetadata', type: CumulusMetaDatastream
 
-  attr_accessor  :record_id, :title, :author, :category, :date_end, :date_start, :description, :fileidentifier, :geo_lat, :geo_lng, :imagetype, :local, :path_to_image
+  attr_accessor  :record_id, :title, :author, :person, :category,:genre, :date_end, :date_start, :date_txt, :description,:lcsh, :fileidentifier, :geo_lat, :geo_lng, :imagetype, :local, :path_to_image, :opstilling
+=begin
+  Accessionsnr
+  Time
+  År
+  Emneord
+  Keywords
+  Person
+=end
 
-
-  #delegate_to 'descMetadata', [:title, :author,  :category, :fileidentifier, :description, :local, :date_start, :date_end, :path_to_image], :unique => true
-  delegate_to 'descMetadata', [:title, :author, :category, :date_end, :date_start, :description, :fileidentifier, :geo_lat, :geo_lng, :imagetype, :local, :path_to_image], :unique => true
+  delegate_to 'descMetadata', [:title, :author, :person, :category, :genre, :date_end, :date_start, :date_txt, :description, :lcsh, :fileidentifier, :geo_lat, :geo_lng, :imagetype, :local, :path_to_image, :opstilling], :unique => true
 
   #delegate :title, to: 'descMetadata'
   #delegate :imagetype,  to: 'descMetadata'

@@ -22,6 +22,7 @@
   </div>
   <div class="control-group">
     <%= f.label :local, :class => 'control-label' %>
+
     <div class="controls">
       <%= f.text_field :local, :class => 'text_field' %>
     </div>
@@ -39,12 +40,34 @@
     </div>
   </div>
 
+    <div class="control-group">
+      <%= f.label :genre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :genre, :class => 'text_field' %>
+      </div>
+    </div>
+
   <div class="control-group">
     <%= f.label :date_start, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :date_start, :class => 'date_select' %>
     </div>
   </div>
+
+    <div class="control-group">
+      <%= f.label :date_end, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :date_end, :class => 'date_select' %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <%= f.label :date_txt, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :date_txt, :class => 'date_select' %>
+      </div>
+    </div>
 
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
@@ -58,6 +81,23 @@
       <%= f.text_field :path_to_image, :class => 'text_field' %>
     </div>
   </div>
+    <div class="control-group">
+      <%= f.label :opstilling, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :opstilling, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "http://id.loc.gov/authorities/subjects/", :class => 'control-label' %>
+
+      <div class="controls">
+        <%= f.text_field :lcsh, :class => 'text_field' %>
+      </div>
+      <div><a target="_blank" href="http://id.loc.gov/search/?q=">Fremsøg subject headings via id.loc.gov </a></div>
+    </div>
+
+
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

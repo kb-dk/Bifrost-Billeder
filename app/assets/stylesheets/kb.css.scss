@@ -1,0 +1,44 @@
+/*
+ * KB's styling skal være lige her.
+ */
+
+/* style.scss */
+
+a {
+  color: #ce4dd6;
+  &:hover { color: #ffb3ff; }
+  &:visited { color: #c458cb; }
+}
+/*
+#main-container{
+  width: 100%;
+  left: 0px;
+  right:0px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0 ;
+  //background-color: darkslategray;
+}
+*/
+
+#landingpage-image{
+  position: relative;
+  text-align: center;
+  background-color: #222222;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0 ;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+
+
+@media screen and (min-width:1200px) and (max-width: 1920px){
+  .container-fluid IMG {
+    width:auto !important;
+    height:auto !important;
+  }
+}
+img {
+  width: auto;
+  height: auto;
+}

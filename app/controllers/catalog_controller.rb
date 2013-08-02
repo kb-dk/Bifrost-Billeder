@@ -16,9 +16,9 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-      :qf => 'title_tesim title_ssm author_tesim description_tesim id',
+      :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm category_tesim fileidentifier_tesim id',
       :qt => 'search',
-      :rows => 50
+      :rows => 10
     }
 
     # solr field configuration for search results/index views
@@ -49,14 +49,17 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
-    config.add_facet_field solr_name('author', :facetable), :label => 'Author'
+    config.add_facet_field solr_name('author', :facetable), :label => 'Forfatter:', :limit => 11
     #config.add_facet_field solr_name('author_tesim', :facetable, :show=>true), :label => 'Author'
-    config.add_facet_field solr_name('category', :facetable), :label => 'Category'
+    config.add_facet_field solr_name('category', :facetable), :label => 'Kategori:', :limit => 11
+    config.add_facet_field solr_name('local', :facetable), :label => 'Område:', :limit => 11
+    config.add_facet_field solr_name('genre', :facetable), :label => 'Genre:', :limit => 11
+
     #config.add_facet_field solr_name('category_tesim', :facetable, :show=>true), :label => 'Category'
 
     #config.add_facet_field solr_name('start_date', :facetable), :label => 'Publication Year'
     #config.add_facet_field solr_name('imagetype_tesim', :facetable), :label => 'Image Type', :limit => 20
-    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Image Type', :limit => 20
+    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type:', :limit => 11
 
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -70,12 +73,14 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
    # config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
-    config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
-    config.add_index_field solr_name('author', :stored_searchable, type: :string), :label => 'Author'
+    config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Titel:'
+    config.add_index_field solr_name('author', :stored_searchable, type: :string), :label => 'Forfatter'
     config.add_index_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
-    config.add_index_field solr_name('category', :symbol), :label => 'Category:'
-    config.add_index_field solr_name('description', :stored_searchable, type: :string), :label => 'Description:'
-    config.add_index_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'imagetype:'
+    config.add_index_field solr_name('category', :stored_searchable, type: :string), :label => 'Kategori:'
+    config.add_index_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'
+    config.add_index_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
+    config.add_index_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
+    config.add_index_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
@@ -95,12 +100,15 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('isbn', :stored_searchable, type: :string), :label => 'ISBN:'
 =end
 
-    config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
-    config.add_show_field solr_name('author', :stored_searchable, type: :string), :label => 'Author'
+    config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Titel:'
+    config.add_show_field solr_name('author', :stored_searchable, type: :string), :label => 'Forfatter'
+    config.add_show_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
+    config.add_show_field solr_name('category', :stored_searchable, type: :string), :label => 'Kategori:'
+    config.add_show_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'
+    config.add_show_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
+    config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'Tidspunkt:'
+    config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_show_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
-    config.add_show_field solr_name('category', :symbol), :label => 'Category:'
-    config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Description:'
-    config.add_show_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'imagetype:'
 
 
     # "fielded" search configuration. Used by pulldown among other places.
@@ -121,32 +129,40 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise. 
     
-    config.add_search_field 'all_fields', :label => 'All Fields'
+    config.add_search_field 'all_fields', :label => 'Alt'
     
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields. 
     
-    config.add_search_field('title') do |field|
+    config.add_search_field('Titel') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params. 
-      field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+      #field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
 
       # :solr_local_parameters will be sent using Solr LocalParams
       # syntax, as eg {! qf=$title_qf }. This is neccesary to use
       # Solr parameter de-referencing like $title_qf.
       # See: http://wiki.apache.org/solr/LocalParams
       field.solr_local_parameters = { 
-        :qf => '$title_qf',
-        :pf => '$title_pf'
+        :qf => '$title_ssm',
+        :pf => '$title_ssm'
       }
     end
     
-    config.add_search_field('author') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+    config.add_search_field('Forfatter') do |field|
+      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
       field.solr_local_parameters = { 
-        :qf => '$author_qf',
-        :pf => '$author_pf'
+        :qf => '$author_ssm',
+        :pf => '$author_ssm'
+      }
+    end
+
+    config.add_search_field('Område') do |field|
+      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+      field.solr_local_parameters = {
+          :qf => '$local_ssm',
+          :pf => '$local_ssm'
       }
     end
     
@@ -181,11 +197,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_date_dtsi desc', :label => 'Relevans'
+    #config.add_sort_field 'score desc, pub_date_dtsi desc', :label => 'Relevans'
     #config.add_sort_field 'score desc, pub_date_dtsi desc, title_ssm asc', :label => 'Relevans'
     #config.add_sort_field 'pub_date_dtsi desc, title_tesi asc', :label => 'year'
-    config.add_sort_field 'author_tesim asc, title_tesim asc', :label => 'Forfatter'
-    config.add_sort_field 'title_tesim asc, pub_date_dtsi desc', :label => 'Titel'
+    #config.add_sort_field 'author_tesim asc, title_tesim asc', :label => 'Forfatter'
+    #config.add_sort_field 'title_tesim asc, pub_date_dtsi desc', :label => 'Titel'
 
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.

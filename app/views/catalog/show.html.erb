@@ -1,20 +1,19 @@
-<div id="content" class="span9 show-document">
+<div id="content" class="container-fluid show-document">
 
-
-
-   
 <% @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name) %>
 
 
 <%# this should be in a partial -%>
-<div id="document" class="<%= render_document_class %>">
+<!--div id="document" class="<% render_document_class %>"-->
+<div class="container-fluid" id="document">
   <div id="doc_<%= @document.id.to_s.parameterize %>">
 
-    <p><%= if (@document["path_to_image_ssm"].first.to_s.strip.length != 0)
-             #image_tag ("http://www.kb.dk/imageService/w850/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg") )
-             image_tag "http://www.kb.dk/imageService/w850/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
-           end
+    <p id="landingpage-image" class="row-fluid"><%= if (@document["path_to_image_ssm"].first.to_s.strip.length != 0)
+                            image_tag "http://www.kb.dk/imageService/w1600/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
+                          end
     %></p>
+
+
     <% # bookmark/folder functions -%>
     <%= render_document_heading(:h1).html_safe %>
 
@@ -24,10 +23,11 @@
       <%= render_document_partial @document, :show %>
     </div>
 
-   
+    <%= render 'previous_next_doc' %>
+
   </div>
 </div>
-  <%= render 'previous_next_doc' %>
+
   <% extra_head_content << render_link_rel_alternates %>
   <% sidebar_items << render_document_sidebar_partial %>
 
