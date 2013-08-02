@@ -23,7 +23,20 @@
   <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
   <dd><%= @image.fileidentifier %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-  <dd><%= @image.category %></dd>
+
+  <dd>
+    <%= @image.category.class %>
+    <% if @image.category.kind_of?(Array) %>
+      <% @image.category.each do |cat| %>
+
+        <p class="label label-info">mul <%= cat %></p>
+
+        <% end %>
+    <% else %>
+       sin<%= @image.category %>
+
+  <% end %>
+  </dd>
 
   <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
   <dd><%= @image.date_start %></dd>
@@ -67,7 +80,15 @@
         <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
         <dd><%= image.fileidentifier.first %></dd>
         <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-        <dd><%= image.category %></dd>
+
+        <dd>
+        <% image.category.each do |cat| %>
+
+              <p class="label label-info"><%= cat %></p>
+
+        <% end %>
+        </dd>
+        <!--dd><%= image.category %></dd-->
 
         <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
         <dd><%= image.date_start.first %></dd>
