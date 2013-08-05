@@ -25,17 +25,12 @@
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
 
   <dd>
-    <%= @image.category.class %>
-    <% if @image.category.kind_of?(Array) %>
       <% @image.category.each do |cat| %>
 
         <p class="label label-info">mul <%= cat %></p>
 
         <% end %>
-    <% else %>
-       sin<%= @image.category %>
 
-  <% end %>
   </dd>
 
   <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>

@@ -35,7 +35,14 @@
 
             <% if document["category_ssm"] %>
                 <dt class="">Kategori:</dt>
-                <dd class=""><%= document["category_ssm"].first.html_safe rescue nil %></dd>
+                <dd class="">
+                    <% document["category_ssm"].each do |cat|  %>
+                        <p class="label label-info">
+                        <%= cat.html_safe rescue nil %>
+                        </p>
+                    <% end %>
+                </dd>
+                <!--dd class="label"><%= document["category_ssm"].html_safe rescue nil %></dd--->
             <% end %>
 
             <% if document["genre_ssm"] %>
@@ -46,7 +53,7 @@
 
             <% if document["local_ssm"] %>
                 <dt class="">Område:</dt>
-                <dd class=""><%= document["local_ssm"].first.html_safe rescue nil %></dd>
+                <dd class=""><%= document["local_ssm"].to_sentence.html_safe rescue nil %></dd>
             <% end %>
 
 
