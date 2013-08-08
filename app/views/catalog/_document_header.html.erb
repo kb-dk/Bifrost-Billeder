@@ -1,0 +1,13 @@
+     
+      <% # header bar for doc items in index view -%>
+      <div class="documentHeader clearfix">
+        
+        <% # main title container for doc partial view -%>
+          <h2 class="index_title"><%= link_to_document document, :label=>document_show_link_field(document), :counter => (document_counter + 1 + @response.params[:start].to_i) %></h2>
+
+        
+        <% # bookmark functions for items/docs -%>
+        <% # render_index_doc_actions document, :wrapping_class => "documentFunctions span2" %>
+
+      </div>
+      

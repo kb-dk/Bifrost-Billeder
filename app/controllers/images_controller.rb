@@ -34,8 +34,14 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     respond_to do |format|
+      logger.info "FORMAT: #{format.to_s}"
+
       format.html # show.html.erb
       format.json { render json: @image }
+      format.xml {
+        logger.info "Returning XML!"
+        render xml: @image }
+
     end
   end
 

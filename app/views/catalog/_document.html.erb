@@ -37,7 +37,8 @@
                 <dt class="">Kategori:</dt>
                 <dd class="">
                     <% document["category_ssm"].each do |cat|  %>
-                        <p class="label label-info">
+                        <!--p class="label label-info"-->
+                        <p>
                         <%= cat.html_safe rescue nil %>
                         </p>
                     <% end %>

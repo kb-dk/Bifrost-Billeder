@@ -1,44 +1,63 @@
-<h4>KB Billeder</h4>
-<p>&nbsp;</p>
-<p>Dette er  et proof of concept hydra-head med billeder fra Cumulus.
-<ul>
-  <li>
-    Søg i billledsamlingen
+<div class="page-header">
+  <h3>KB Billeder</h3>
+</div>
 
-  </li>
-
-  <li>
-    Gennemse facetterne til højre
-  </li>
-  <li>
-    Opret et nyt billede manuelt <a href="/new"></a>
-  </li>
-  <li>
-    <a href="/loadallxmlfiles">Indlæs alle poster fra eksporteret fra cumulus i raw.xml</a>
-  </li>
-
-
-  <li>
-    <a href="/deleteallobjects">Slet alle poster i dette hydra-head</a>
-  </li>
-
-</ul>
-</p>
-
-<p>
-Formål:
+<div class="hero-unit">
+  <p>
+    Formål:
   <ul>
-    <li>flere hydra-heads på samme fedora og solr</li>
+    <li>
+      Søg i KB's billledsamling
+
+    </li>
+
+    <li>Gennemse og naviger via facetter for KB's Billedsamling.</li>
+    <li>Specialiserede søgeinterfaces og materiale type på samme repository (Fedora og Solr)</li>
     <li>Generisk søgeinterface</li>
-    <li>access rights i rightsmetadatastream</li>
-    <li>automatiseret indlæsning</li>
-    <li>Multiple datastreams</li>
-    <li>OAI høstning via blacklight</li>
+    <li>Versions historik for alle objekter til f.eks. crowdsourcing.</li>
+    <li>Access rights og licenser i rightsmetadatastream</li>
+    <li>Automatiseret indlæsning af store datamængder</li>
+    <!--li>Multiple datastreams</li-->
+    <li>OAI høstning via blacklight <a href="https://github.com/cbeer/blacklight_oai_provider">Blacklight oai provider</a></li>
+    <li>Relationer mellem objekter</li>
     <li>LCSH i poster</li>
     <li>Indbygget versions styring i fedora til crowd sourcing</li>
+    <li>Semantisk annotering af udstillede data via vokabulariet fra <a href="schema.org">schema.org</a></li>
 
   </ul>
 
-</p>
-<% #Creates a bit space in the page -%>
+
+
+
+  </p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h4>Administration</h4>
+
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="well well-large">
+        <a href="/images/new/" class="btn btn-primary" title="New image" id="new"><i class="icon icon-large icon-plus icon-white"></i><span class="new" title="new">New image</span></a>
+        Opret et nyt billede manuelt til samlingen.      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="well">
+        <a href="/images/deleteallobjects" class="btn btn-large btn-danger" data-confirm="Er du helt sikker? Det tager mindst 5 timer at læse dem ind igen..."><i class="icon-trash icon-white"></i><span class="slet" title="Slet">Slet alle billeder</span></a> i samlingen.
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="well">
+        <a href="/images/loadallxmlfiles" class="btn btn-large btn-success" data-confirm="Er du helt sikker? Det tager mindst 5 timer at læse dem ind..." > <i class="icon-repeat icon-white"></i><span class="indlæs" title="indlæs">Indlæs alle billeder</span>
+         </a>
+        Indlæs alle poster fra eksporteret fra cumulus i raw.xml i samlingen.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+  <% #Creates a bit space in the page -%>
 

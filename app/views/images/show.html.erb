@@ -25,12 +25,16 @@
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
 
   <dd>
-      <% @image.category.each do |cat| %>
+    <% if @image.category.kind_of?(Array) %>
+        <% @image.category.each do |cat| %>
 
-        <p class="label label-info">mul <%= cat %></p>
+            <p class="label label-info"><%= cat %></p>
 
         <% end %>
+    <% else %>
+        <%= @image.category %>
 
+    <% end %>
   </dd>
 
   <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
@@ -79,7 +83,8 @@
         <dd>
         <% image.category.each do |cat| %>
 
-              <p class="label label-info"><%= cat %></p>
+              <!--p class="label label-info">    </p-->
+               <p><%= cat %></p>
 
         <% end %>
         </dd>
@@ -103,7 +108,7 @@
 
 
         <dt><strong><%= model_class.human_attribute_name(:lcsh) %>:</strong></dt>
-        <dd><a href="http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %>">http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %></a></dd>
+        <dd><small><a href="http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %>">http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %></a></small></dd>
   </div>
   <% end %>
 

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  origin: MyString
+  imagetype: MyString
+  local: MyString
+  fileid: MyString
+  category: MyString
+  geo_lat: 9.99
+  geo_lng: 9.99
+  date_start: 2013-07-04
+  date_end: 2013-07-04
+  description: MyText
+  path_to_image: MyString
+
+two:
+  title: MyString
+  origin: MyString
+  imagetype: MyString
+  local: MyString
+  fileid: MyString
+  category: MyString
+  geo_lat: 9.99
+  geo_lng: 9.99
+  date_start: 2013-07-04
+  date_end: 2013-07-04
+  description: MyText
+  path_to_image: MyString

@@ -1,0 +1,354 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'uglify-js', '-g' ]
+info using npm@1.1.1
+info using node@v0.6.11
+verbose config file /Users/abw/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+silly exec /usr/local/bin/node "/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js" "nobody" 20
+silly spawning [ '/usr/local/bin/node',
+silly spawning   [ '/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js',
+silly spawning     'nobody',
+silly spawning     20 ],
+silly spawning   null ]
+silly output from getuid/gid {"uid":-2,"gid":20}
+silly output from getuid/gid 
+verbose cache add [ 'uglify-js', null ]
+silly cache add: name, spec, args [ undefined, 'uglify-js', [ 'uglify-js', null ] ]
+verbose parsed url { pathname: 'uglify-js', path: 'uglify-js', href: 'uglify-js' }
+verbose addNamed [ 'uglify-js', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'uglify-js', '', false ]
+verbose raw, before any munging uglify-js
+verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
+verbose url resolved https://registry.npmjs.org/uglify-js
+verbose etag "DZ5NK5J2APVZ8VQQJJ07QCBJT"
+http GET https://registry.npmjs.org/uglify-js
+http 304 https://registry.npmjs.org/uglify-js
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+silly get cb     etag: '"DZ5NK5J2APVZ8VQQJJ07QCBJT"',
+silly get cb     date: 'Tue, 23 Jul 2013 20:40:03 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag uglify-js from cache
+silly name, range, hasData 2 [ 'uglify-js', '', true ]
+silly versions [ 'uglify-js',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.3',
+silly versions     '1.0.4',
+silly versions     '1.0.5',
+silly versions     '1.0.6',
+silly versions     '1.0.7',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.2.0',
+silly versions     '1.2.1',
+silly versions     '1.2.2',
+silly versions     '1.2.3',
+silly versions     '1.2.4',
+silly versions     '1.2.5',
+silly versions     '1.2.6',
+silly versions     '1.3.0',
+silly versions     '1.3.1',
+silly versions     '1.3.2',
+silly versions     '1.3.3',
+silly versions     '1.3.4',
+silly versions     '2.2.0',
+silly versions     '2.2.1',
+silly versions     '2.2.2',
+silly versions     '2.2.3',
+silly versions     '2.2.4',
+silly versions     '2.2.5',
+silly versions     '2.3.0',
+silly versions     '2.3.1',
+silly versions     '2.3.2',
+silly versions     '2.3.3',
+silly versions     '2.3.4',
+silly versions     '2.3.5',
+silly versions     '2.3.6',
+silly versions     '1.3.5' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.20-darwin-ia32-12.4.0',
+verbose bin dist   { shasum: 'fa0984770b428b7a9b2a8058f46355d14fef211a',
+verbose bin dist     tarball: 'http://registry.npmjs.org/uglify-js/-/uglify-js-2.3.6.tgz' } ]
+verbose caching /Users/abw/.npm/uglify-js/2.3.6/package/package.json
+verbose loadDefaults uglify-js@2.3.6
+silly resolved [ { name: 'uglify-js',
+silly resolved     description: 'JavaScript parser, mangler/compressor and beautifier toolkit',
+silly resolved     homepage: 'http://lisperator.net/uglifyjs',
+silly resolved     main: 'tools/node.js',
+silly resolved     version: '2.3.6',
+silly resolved     engines: { node: '>=0.4.0' },
+silly resolved     maintainers: 
+silly resolved      [ { name: 'Mihai Bazon',
+silly resolved          email: 'mihai.bazon@gmail.com',
+silly resolved          url: 'http://lisperator.net/' } ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/mishoo/UglifyJS2.git' },
+silly resolved     dependencies: { async: '~0.2.6', 'source-map': '~0.1.7', optimist: '~0.3.5' },
+silly resolved     bin: { uglifyjs: 'bin/uglifyjs' },
+silly resolved     scripts: { test: 'node test/run-tests.js' },
+silly resolved     _id: 'uglify-js@2.3.6',
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.1',
+silly resolved     _nodeVersion: 'v0.6.11',
+silly resolved     _defaultsLoaded: true } ]
+info into /usr/local/lib uglify-js@2.3.6
+info installOne uglify-js@2.3.6
+info unbuild /usr/local/lib/node_modules/uglify-js
+verbose from cache /Users/abw/.npm/uglify-js/2.3.6/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/___uglify-js.npm'
+verbose mkdir done: /usr/local/lib/node_modules/___uglify-js.npm 755
+verbose unpack_ uid, gid [ -2, 20 ]
+verbose unpackTarget /usr/local/lib/node_modules/uglify-js
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/.npmignore
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/.travis.yml
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/LICENSE
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/README.md
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/bin
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/bin/uglifyjs
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/ast.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/compress.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/mozilla-ast.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/output.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/parse.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/scope.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/sourcemap.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/transform.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/lib/utils.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/tools
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/tools/node.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/run-tests.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/arrays.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/blocks.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/conditionals.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/dead-code.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/debugger.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/drop-unused.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-105.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-12.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-143.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-22.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-44.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/issue-59.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/labels.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/loops.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/properties.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/sequences.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/switch.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___uglify-js.npm/package/test/compress/typeof.js
+verbose gunzed /usr/local/lib/node_modules/___uglify-js.npm/package
+verbose rm'ed /usr/local/lib/node_modules/uglify-js
+verbose renamed [ '/usr/local/lib/node_modules/___uglify-js.npm/package',
+verbose renamed   '/usr/local/lib/node_modules/uglify-js' ]
+verbose caching /usr/local/lib/node_modules/uglify-js/package.json
+verbose loadDefaults uglify-js@2.3.6
+info preinstall uglify-js@2.3.6
+verbose from cache /usr/local/lib/node_modules/uglify-js/package.json
+verbose cache add [ 'async@~0.2.6', null ]
+silly cache add: name, spec, args [ undefined, 'async@~0.2.6', [ 'async@~0.2.6', null ] ]
+verbose parsed url { pathname: 'async@~0.2.6',
+verbose parsed url   path: 'async@~0.2.6',
+verbose parsed url   href: 'async@~0.2.6' }
+silly cache add: name, spec, args [ 'async', '~0.2.6', [ 'async', '~0.2.6' ] ]
+verbose parsed url { pathname: '~0.2.6', path: '~0.2.6', href: '~0.2.6' }
+verbose addNamed [ 'async', '~0.2.6' ]
+verbose addNamed [ null, '>=0.2.6- <0.3.0-' ]
+silly name, range, hasData [ 'async', '>=0.2.6- <0.3.0-', false ]
+verbose cache add [ 'source-map@~0.1.7', null ]
+silly cache add: name, spec, args [ undefined, 'source-map@~0.1.7', [ 'source-map@~0.1.7', null ] ]
+verbose parsed url { pathname: 'source-map@~0.1.7',
+verbose parsed url   path: 'source-map@~0.1.7',
+verbose parsed url   href: 'source-map@~0.1.7' }
+silly cache add: name, spec, args [ 'source-map', '~0.1.7', [ 'source-map', '~0.1.7' ] ]
+verbose parsed url { pathname: '~0.1.7', path: '~0.1.7', href: '~0.1.7' }
+verbose addNamed [ 'source-map', '~0.1.7' ]
+verbose addNamed [ null, '>=0.1.7- <0.2.0-' ]
+silly name, range, hasData [ 'source-map', '>=0.1.7- <0.2.0-', false ]
+verbose cache add [ 'optimist@~0.3.5', null ]
+silly cache add: name, spec, args [ undefined, 'optimist@~0.3.5', [ 'optimist@~0.3.5', null ] ]
+verbose parsed url { pathname: 'optimist@~0.3.5',
+verbose parsed url   path: 'optimist@~0.3.5',
+verbose parsed url   href: 'optimist@~0.3.5' }
+silly cache add: name, spec, args [ 'optimist', '~0.3.5', [ 'optimist', '~0.3.5' ] ]
+verbose parsed url { pathname: '~0.3.5', path: '~0.3.5', href: '~0.3.5' }
+verbose addNamed [ 'optimist', '~0.3.5' ]
+verbose addNamed [ null, '>=0.3.5- <0.4.0-' ]
+silly name, range, hasData [ 'optimist', '>=0.3.5- <0.4.0-', false ]
+verbose raw, before any munging optimist
+verbose url resolving [ 'https://registry.npmjs.org/', './optimist' ]
+verbose url resolved https://registry.npmjs.org/optimist
+verbose etag "7VTLKGSF8BV0P8PMZG3SDUJ94"
+http GET https://registry.npmjs.org/optimist
+verbose raw, before any munging async
+verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+verbose url resolved https://registry.npmjs.org/async
+verbose etag "BX1TRC6662G408SQG8NIV7PMR"
+http GET https://registry.npmjs.org/async
+verbose raw, before any munging source-map
+verbose url resolving [ 'https://registry.npmjs.org/', './source-map' ]
+verbose url resolved https://registry.npmjs.org/source-map
+verbose etag "DJRQWKOH9YWSTNB7P953U09JI"
+http GET https://registry.npmjs.org/source-map
+http 304 https://registry.npmjs.org/optimist
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+silly get cb     etag: '"7VTLKGSF8BV0P8PMZG3SDUJ94"',
+silly get cb     date: 'Tue, 23 Jul 2013 20:40:04 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag optimist from cache
+silly name, range, hasData 2 [ 'optimist', '>=0.3.5- <0.4.0-', true ]
+silly versions [ 'optimist',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.0.3',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.2.5',
+silly versions     '0.2.6',
+silly versions     '0.2.7',
+silly versions     '0.2.8',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.3',
+silly versions     '0.3.4',
+silly versions     '0.3.5',
+silly versions     '0.3.6',
+silly versions     '0.3.7',
+silly versions     '0.4.0',
+silly versions     '0.5.0',
+silly versions     '0.5.1',
+silly versions     '0.5.2',
+silly versions     '0.6.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.20-darwin-ia32-12.4.0',
+verbose bin dist   { shasum: 'c90941ad59e4273328923074d2cf2e7cbc6ec0d9',
+verbose bin dist     tarball: 'http://registry.npmjs.org/optimist/-/optimist-0.3.7.tgz' } ]
+verbose caching /Users/abw/.npm/optimist/0.3.7/package/package.json
+verbose loadDefaults optimist@0.3.7
+http 304 https://registry.npmjs.org/async
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+silly get cb     etag: '"BX1TRC6662G408SQG8NIV7PMR"',
+silly get cb     date: 'Tue, 23 Jul 2013 20:40:04 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag async from cache
+http 304 https://registry.npmjs.org/source-map
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+silly get cb     etag: '"DJRQWKOH9YWSTNB7P953U09JI"',
+silly get cb     date: 'Tue, 23 Jul 2013 20:40:04 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag source-map from cache
+silly name, range, hasData 2 [ 'async', '>=0.2.6- <0.3.0-', true ]
+silly versions [ 'async',
+silly versions   [ '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.1.10',
+silly versions     '0.1.11',
+silly versions     '0.1.12',
+silly versions     '0.1.13',
+silly versions     '0.1.14',
+silly versions     '0.1.15',
+silly versions     '0.1.16',
+silly versions     '0.1.17',
+silly versions     '0.1.18',
+silly versions     '0.1.19',
+silly versions     '0.1.20',
+silly versions     '0.1.21',
+silly versions     '0.1.22',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.2.5',
+silly versions     '0.2.6',
+silly versions     '0.2.7',
+silly versions     '0.2.8',
+silly versions     '0.2.9' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.20-darwin-ia32-12.4.0',
+verbose bin dist   { shasum: 'df63060fbf3d33286a76aaf6d55a2986d9ff8619',
+verbose bin dist     tarball: 'http://registry.npmjs.org/async/-/async-0.2.9.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/async/-/async-0.2.9.tgz',
+verbose addRemoteTarball   'df63060fbf3d33286a76aaf6d55a2986d9ff8619' ]
+silly name, range, hasData 2 [ 'source-map', '>=0.1.7- <0.2.0-', true ]
+silly versions [ 'source-map',
+silly versions   [ '0.0.0', '0.1.0', '0.1.1', '0.1.2', '0.1.3' ] ]
+verbose about to build /usr/local/lib/node_modules/uglify-js
+ERR! error installing uglify-js@2.3.6
+info unbuild /usr/local/lib/node_modules/uglify-js
+verbose from cache /usr/local/lib/node_modules/uglify-js/package.json
+info preuninstall uglify-js@2.3.6
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1374612004962'
+info uninstall uglify-js@2.3.6
+verbose unbuild uglify-js@2.3.6 [ true,
+verbose unbuild uglify-js@2.3.6   '/usr/local/lib/node_modules',
+verbose unbuild uglify-js@2.3.6   '/usr/local/lib/node_modules' ]
+verbose binRoot [ '/usr/local/bin', { uglifyjs: 'bin/uglifyjs' } ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1374612004962/1374612004962-0.41973838792182505'
+info postuninstall uglify-js@2.3.6
+verbose mkdir done: /tmp/npm-1374612004962/1374612004962-0.41973838792182505 755
+verbose fetch to /tmp/npm-1374612004962/1374612004962-0.41973838792182505/tmp.tgz
+http GET https://registry.npmjs.org/async/-/async-0.2.9.tgz
+verbose installOne cb uglify-js@2.3.6
+ERR! Error: No compatible version found: source-map@'>=0.1.7- <0.2.0-'
+ERR! Valid install targets:
+ERR! ["0.0.0","0.1.0","0.1.1","0.1.2","0.1.3"]
+ERR!     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:488:10)
+ERR!     at next_ (/usr/local/lib/node_modules/npm/lib/cache.js:438:17)
+ERR!     at next (/usr/local/lib/node_modules/npm/lib/cache.js:415:44)
+ERR!     at /usr/local/lib/node_modules/npm/lib/cache.js:408:5
+ERR!     at saved (/usr/local/lib/node_modules/npm/lib/utils/npm-registry-client/get.js:147:7)
+ERR!     at Object.oncomplete (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:231:7)
+ERR! You may report this log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 12.4.0
+ERR! command "node" "/usr/local/bin/npm" "install" "uglify-js" "-g"
+ERR! cwd /Users/abw/Code/SIFD-Billeder
+ERR! node -v v0.6.11
+ERR! npm -v 1.1.1
+ERR! message No compatible version found: source-map@'>=0.1.7- <0.2.0-'
+ERR! message Valid install targets:
+ERR! message ["0.0.0","0.1.0","0.1.1","0.1.2","0.1.3"]
+verbose exit [ 1, true ]
