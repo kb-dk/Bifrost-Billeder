@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'blacklight'
-gem 'hydra-head', '6.0.0'
-gem 'jettywrapper'
+#gem 'blacklight'
+gem 'hydra', '6.0.0'
+#gem 'jettywrapper'
 gem 'bootswatch-rails'
 
 #gem 'blacklight'
