@@ -12,6 +12,7 @@ SIFDBilleder::Application.routes.draw do
   #get '/loadalldata', to: 'images#loadallimagesfromfilesystem'
   get '/loadallxmlfiles', to: 'images#loadallxmlfromglobal'
   get '/deleteallobjects', to: 'images#emptysystem'
+  get '/reloadsolrindex', to: 'images#reloadsolrindex'
 
 
 
