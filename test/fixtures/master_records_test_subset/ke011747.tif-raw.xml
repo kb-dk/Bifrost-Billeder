@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record catalog="Samlingsbilleder">
+ <field name="record_id">
+  <value>73803</value>
+ </field>
+ <field name="Opstilling" data-type="string">
+  <value>Billedsamlingen. Dagens Nyheder. Margrethe Bohr</value>
+ </field>
+ <field name="Horizontal Pixels" data-type="integer">
+  <value>1542</value>
+ </field>
+ <field name="Thumbnail Rotation" data-type="enumeration">
+  <value>0</value>
+ </field>
+ <field name="Color Channels" data-type="integer">
+  <value>3</value>
+ </field>
+ <field name="Bits Per Channel" data-type="integer">
+  <value>8</value>
+ </field>
+ <field name="formatName" data-type="string">
+  <value>TIFF Image</value>
+ </field>
+ <field name="Cataloging language" data-type="enumeration">
+  <value>da</value>
+ </field>
+ <field name="Contrast" data-type="string">
+  <value>Normal</value>
+ </field>
+ <field name="IPTC Date Created" data-type="date">
+  <value>Tue May 11 13:56:18 CEST 2010</value>
+ </field>
+ <field name="size" data-type="integer">
+  <value>15827028</value>
+ </field>
+ <field name="Registrationdate" data-type="integer">
+  <value>2049029316</value>
+ </field>
+ <field name="Undo" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="Generel materialebetegnelse" data-type="enumeration">
+  <value>Billede, Todimensionalt billedmateriale </value>
+ </field>
+ <field name="Published" data-type="boolean">
+  <value>true</value>
+ </field>
+ <field name="URL" data-type="string">
+  <value>http://www.kb.dk/da/nb/materialer/billeder/index.html</value>
+ </field>
+ <field name="Subject Distance Range" data-type="string">
+  <value>Unknown</value>
+ </field>
+ <field name="Registrationstate" data-type="enumeration">
+  <value>Færdigregistreret</value>
+ </field>
+ <field name="Unix File Identifier" data-type="integer">
+  <value>1430407750</value>
+ </field>
+ <field name="Scene Capture Type" data-type="string">
+  <value>Standard</value>
+ </field>
+ <field name="Publication_catalog" data-type="enumeration">
+  <value>Samlingsbilleder</value>
+ </field>
+ <field name="Custom Rendered" data-type="string">
+  <value>Normal process</value>
+ </field>
+ <field name="objectIdentifierValue" data-type="string">
+  <value>Uid:dk:kb:doms:2007-01/471234e0-7059-11df-a9de-0016357f605f</value>
+ </field>
+ <field name="Materialebetegnelse" data-type="enumeration">
+  <value>Fotografi</value>
+ </field>
+ <field name="Sharpness" data-type="string">
+  <value>Normal</value>
+ </field>
+ <field name="CHECKSUM_ORIGINAL_MASTER" data-type="string">
+  <value>9c3a4242eed67b48f17f4efa485e3a9f</value>
+ </field>
+ <field name="PublishedByVersion" data-type="string">
+  <value>Publication workflow of iteration 9. Class = dk.kb.doms.components.workflow.iteration9.PublishTiffMasterWorkflow;Publish with QA version = $Revision: 1.5 $;Publish without QA version = $Revision: 1.4 $;productionRoot = /Images;undoRoot = /online_master_arkiv/undo/Images;publishNonArchivalRoot = /online_master_arkiv/non-archival/Images;productionRoot = /Images;</value>
+ </field>
+ <field name="Production_Catalog" data-type="string">
+  <value>Images DP</value>
+ </field>
+ <field name="messageDigest" data-type="string">
+  <value>9c3a4242eed67b48f17f4efa485e3a9f</value>
+ </field>
+ <field name="PublicationDate" data-type="string">
+  <value>05-06-2010</value>
+ </field>
+ <field name="LastCmdSucceeded" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.SetFieldToConstantCmd@1bc9a45</value>
+ </field>
+ <field name="LastCmdInitiated" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.SetFieldToConstantCmd@1bc9a45</value>
+ </field>
+ <field name="QA_status" data-type="string"/>
+ <field name="For Sale" data-type="boolean">
+  <value>true</value>
+ </field>
+ <field name="CHECKSUM_DISPLAY_COPY" data-type="string">
+  <value>f4cca71b82c8e15b5689f30935829759</value>
+ </field>
+ <field name="Preservation_status" data-type="enumeration">
+  <value>Skal ikke langtidsbevares</value>
+ </field>
+ <field name="Vertical Pixels" data-type="integer">
+  <value>3223</value>
+ </field>
+ <field name="Record Name" data-type="string">
+  <value>ke011747.tif</value>
+ </field>
+ <field name="Record Creation Date" data-type="date">
+  <value>Wed May 26 09:17:46 CEST 2010</value>
+ </field>
+ <field name="Record Modification Date" data-type="date">
+  <value>Mon Mar 26 13:44:28 CEST 2012</value>
+ </field>
+ <field name="Asset Creation Date" data-type="date">
+  <value>Sat Jun 05 07:18:10 CEST 2010</value>
+ </field>
+ <field name="Asset Modification Date" data-type="date">
+  <value>Sat Jun 05 07:18:10 CEST 2010</value>
+ </field>
+ <field name="Cataloging User" data-type="string">
+  <value>suma</value>
+ </field>
+ <field name="Software" data-type="string">
+  <value>Adobe Photoshop CS Windows</value>
+ </field>
+ <field name="Thumbnail" data-type="picture">
+  <value>[B@1530aa7</value>
+ </field>
+ <field name="Categories" data-type="string">
+  <value>Portrætter, Portrætsamlingen, Bohr, Niels</value>
+ </field>
+ <field name="File Format" data-type="string">
+  <value>TIFF Image</value>
+ </field>
+ <field name="Horizontal Resolution" data-type="double">
+  <value>400.0</value>
+ </field>
+ <field name="Vertical Resolution" data-type="double">
+  <value>400.0</value>
+ </field>
+ <field name="Image Width" data-type="double">
+  <value>3.855</value>
+ </field>
+ <field name="Image Height" data-type="double">
+  <value>8.0575</value>
+ </field>
+ <field name="File Data Size" data-type="integer">
+  <value>15827028</value>
+ </field>
+ <field name="Asset Reference" data-type="blob">
+  <value>/online_master_arkiv/non-archival/Images/BILLED/2010/maj/NBohr_opsaml/ke011747.tif</value>
+ </field>
+ <field name="Asset Identifier" data-type="integer">
+  <value>1275697090</value>
+ </field>
+ <field name="Asset Modification State Identifier" data-type="string">
+  <value>2010-05-11 02:56:18</value>
+ </field>
+ <field name="Thumbnail Mean Value" data-type="integer">
+  <value>161</value>
+ </field>
+ <field name="Thumbnail Standard Deviation" data-type="integer">
+  <value>71</value>
+ </field>
+ <field name="Color Model" data-type="enumeration">
+  <value>RGB Color</value>
+ </field>
+ <field name="ICC Profile Name" data-type="string">
+  <value>Adobe RGB (1998)</value>
+ </field>
+ <field name="Titel" data-type="string">
+  <value>Niels Bohr med cigar i hånden</value>
+ </field>
+ <field name="Captured Date" data-type="date">
+  <value>Tue May 11 13:56:18 CEST 2010</value>
+ </field>
+ <field name="Folder Name" data-type="string">
+  <value>non-archival\Images\BILLED\2010\maj\NBohr_opsaml</value>
+ </field>
+ <field name="Asset Name" data-type="string">
+  <value>ke011747.tif</value>
+ </field>
+ <field name="Volume Name" data-type="string">
+  <value>online_master_arkiv</value>
+ </field>
+ <field name="Server Name" data-type="string">
+  <value>dia-prod-cdb-01.kb.dk</value>
+ </field>
+ <field name="Related Sub Assets" data-type="blob">
+  <value>
+   <pack type="list" id="ke011747.tif" relation="Related Sub Assets" catalogue="Samlingsbilleder">
+    <pack>
+     <pack type="record">
+      <value key="1315007845" type="string">ke011748.tif</value>
+      <value key="1382377075">
+       <pack type="list">
+        <pack>
+         <pack type="record">
+          <value key="1382828356" type="guid">{9ed0887f-40e8-4091-a91c-de356c869251}</value>
+          <value key="1382238532" type="int">73804</value>
+         </pack>
+        </pack>
+       </pack>
+      </value>
+     </pack>
+    </pack>
+   </pack>
+  </value>
+ </field>
+ <field name="Asset Data Size (Long)" data-type="long">
+  <value>15827028</value>
+ </field>
+ <field name="Image Orientation" data-type="string">
+  <value>Top left</value>
+ </field>
+ <field name="GUID" data-type="string">
+  <value>Uid:dk:kb:doms:2007-01/471234e0-7059-11df-a9de-0016357f605f</value>
+ </field>
+ <field name="Saturation" data-type="string">
+  <value>Normal</value>
+ </field>
+ <field name="Copyright" data-type="enumeration">
+  <value>Billedet er muligvis beskyttet af loven om ophavsret</value>
+ </field>
+ <field name="Person" data-type="string">
+  <value>Bohr, Niels (1885-1962) fysiker</value>
+ </field>
+ <field name="ID" data-type="integer">
+  <value>73803</value>
+ </field>
+ <field name="Catalog Name" data-type="string">
+  <value>Samlingsbilleder</value>
+ </field>
+ <field name="White Balance Mode" data-type="string">
+  <value>Auto white balance</value>
+ </field>
+ <field name="URL-tekst" data-type="string">
+  <value>Det Kongelige Biblioteks billedsamling</value>
+ </field>
+ <field name="Exposure Mode" data-type="string">
+  <value>Auto exposure</value>
+ </field>
+ <field name="Flash Mode" data-type="string">
+  <value>Flash not used, No strobe return detection function, No flash function, No red-eye reduction mode</value>
+ </field>
+ <field name="Genre" data-type="enumeration">
+  <value>Portræt og person</value>
+ </field>
+ <field name="Ejerskab_farve" data-type="enumeration">
+  <value>-65281</value>
+ </field>
+ <field name="Color Space" data-type="string">
+  <value>Uncalibrated</value>
+ </field>
+ <field name="creatingApplication" data-type="string">
+  <value>Adobe Photoshop CS Windows</value>
+ </field>
+ <field name="XMP Metadata" data-type="string"><![CDATA[<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='XMP toolkit 3.0-28, framework 1.6'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:exif='http://ns.adobe.com/exif/1.0/'>
+  <exif:ColorSpace>4294967295</exif:ColorSpace>
+  <exif:PixelXDimension>1542</exif:PixelXDimension>
+  <exif:PixelYDimension>3223</exif:PixelYDimension>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:pdf='http://ns.adobe.com/pdf/1.3/'>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:photoshop='http://ns.adobe.com/photoshop/1.0/'>
+  <photoshop:History></photoshop:History>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:tiff='http://ns.adobe.com/tiff/1.0/'>
+  <tiff:XResolution>4000000/10000</tiff:XResolution>
+  <tiff:YResolution>4000000/10000</tiff:YResolution>
+  <tiff:ResolutionUnit>2</tiff:ResolutionUnit>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:xap='http://ns.adobe.com/xap/1.0/'>
+  <xap:CreateDate>2010-05-11T13:56:18+01:00</xap:CreateDate>
+  <xap:ModifyDate>2010-05-11T13:56:18+01:00</xap:ModifyDate>
+  <xap:MetadataDate>2010-05-11T13:56:18+01:00</xap:MetadataDate>
+  <xap:CreatorTool>Adobe Photoshop CS Windows</xap:CreatorTool>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:stRef='http://ns.adobe.com/xap/1.0/sType/ResourceRef#'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DerivedFrom rdf:parseType='Resource'>
+   <stRef:instanceID>uuid:770bd5c9-5c14-11df-9dab-82afaaf79825</stRef:instanceID>
+   <stRef:documentID>adobe:docid:photoshop:f89c6297-5c13-11df-9dab-82afaaf79825</stRef:documentID>
+  </xapMM:DerivedFrom>
+  <xapMM:DocumentID>adobe:docid:photoshop:32f1473f-5cf4-11df-8865-96a1ab294253</xapMM:DocumentID>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='uuid:32f14740-5cf4-11df-8865-96a1ab294253'
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+  <dc:format>image/tiff</dc:format>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xmpmeta>]]></field>
+ <field name="Label" data-type="enumeration">
+  <value>-214440</value>
+ </field>
+ <field name="Gain Control" data-type="string">
+  <value>None</value>
+ </field>
+ <field name="Compression" data-type="string">
+  <value>Uncompressed</value>
+ </field>
+ <field name="Department" data-type="enumeration">
+  <value>KOB: Kort- og Billedafdelingen</value>
+ </field>
+ <field name="Mastertransferstatus" data-type="string">
+  <value>OK</value>
+ </field>
+ <field name="Category">
+  <value cumulusId="1489">Portrætter</value>
+  <value cumulusId="2197">Portrætsamlingen</value>
+  <value cumulusId="2248">Bohr, Niels</value>
+ </field>
+</record>
