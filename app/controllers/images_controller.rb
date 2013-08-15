@@ -117,8 +117,21 @@ class ImagesController < ApplicationController
   end
 =end
 
-  # GET /images
-  # GET /images.json
+
+
+  def reloadsolrindex
+    stat_counter = 0
+    @images = Image.all
+    @images.each do |image|
+      logger.debug("updating index for image: " + image.title.to_s )
+      stat_counter += 1
+      image.update_index
+    end
+    logger.info("done reloading solr index")
+    redirect_to  root_url, notice: "#{stat_counter} images was successfully reindexed to solr."
+  end
+
+
   def emptysystem
     stat_counter = 0
     @images = Image.all
