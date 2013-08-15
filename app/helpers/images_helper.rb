@@ -65,7 +65,7 @@ module ImagesHelper
         if @image.person.nil? || @image.person.empty?
           @image.person = [element.text]
         else
-          @image.person.push element.text
+          @image.person << element.text
         end
       end
     end
