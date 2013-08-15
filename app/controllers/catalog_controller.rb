@@ -185,9 +185,9 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, title_ssort asc', :label => 'Relevans'
-    config.add_sort_field 'title_ssort asc, author_ssort desc, local_ssort asc', :label => 'Titel'
-    config.add_sort_field 'author_ssort desc, local_ssort asc, title_ssort asc', :label => 'Forfatter'
-    config.add_sort_field 'local_ssort asc, title_ssort asc, author_ssort desc', :label => 'Genre'
+    config.add_sort_field 'title_ssort asc, score desc', :label => 'Titel'
+    config.add_sort_field 'author_ssort desc, score desc', :label => 'Forfatter'
+    config.add_sort_field 'local_ssort asc, score desc', :label => 'Genre'
 
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.

@@ -2,6 +2,8 @@ require 'rexml/document'
 
 
 class ImagesController < ApplicationController
+  include ImagesHelper
+
   # GET /images
   # GET /images.json
   def index
@@ -152,156 +154,7 @@ class ImagesController < ApplicationController
     #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_2500/*.xml') do |filename|
 #    Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_subset/*.xml') do |filename|
     Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
-    #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records/*.xml') do |filename|
-    # 700 MB XML metadata
-    #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2108/master_records/*.xml') do |filename|
-      #logger.info(filename)
-
-      doc = REXML::Document.new File.new(filename)
-      #logger.debug  doc.root.size
-      @image = Image.new()
-      doc.root.elements.each("field/value") do |element|
-        #logger.debug element.parent.attributes
-        if element.parent.attributes["name"] == "record_id"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.record_id = element.text
-        end
-
-        if element.parent.attributes["name"] == "Titel"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.title = element.text
-        end
-        if element.parent.attributes["name"] == "Ophav"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.author = element.text
-        end
-
-
-        if element.parent.attributes["name"] == "Opstilling"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.opstilling = element.text
-        end
-        if element.parent.attributes["name"] == "Genre"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.genre  = element.text
-        end
-
-
-        if element.parent.attributes["name"] == "Lokalitet"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.local = element.text.split(',')
-
-        end
-
-        if element.parent.attributes["name"] == "Categories"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.category = element.text.split(',')
-        end
-
-        if element.parent.attributes["name"] == "Record Name"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.fileidentifier = element.text
-          #<value>ke000063.tif</value>
-         end
-
-=begin
-        if element.parent.attributes["name"] == "objectIdentifierValue"
-          #  <value>Uid:dk:kb:doms:2007-01/cae69b60-1ca0-11df-bcd1-0016357f605f</value>
-          logger.debug element.parent.attributes
-          logger.debug element.text
-        end
-=end
-
-        if element.parent.attributes["name"] == "Materialebetegnelse"
-          #   <value>Fotografi</value>
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.imagetype = element.text
-
-        end
-
-        if element.parent.attributes["name"] == "Generel materialebetegnelse"
-          #logger.info element.parent.attributes
-          #logger.info element.text
-          if @image.imagetype.nil? || @image.imagetype.empty?
-            @image.imagetype = element.text
-          else
-            @image.imagetype << element.text
-          end
-        end
-
-=begin
-        if element.parent.attributes["name"] == "CHECKSUM_ORIGINAL_MASTER"
-          logger.info element.parent.attributes
-          logger.info element.text
-        end
-=end
-
-        if element.parent.attributes["name"] == "Time"
-          #logger.debug element.parent.attributes
-          #logger.debug element.text
-          @image.date_start = element.text
-
-        end
-
-
-         if element.parent.attributes["name"] == "Asset Reference"
-           #logger.debug element.parent.attributes
-           #logger.debug element.text
-           @image.path_to_image = element.text
-
-           # http://www.kb.dk/imageService/w450/online_master_arkiv_11/non-archival/Images/BILLED/2011/apr/DH_kvart/DH008765.jpg
-           #http://www.kb.dk/imageService/w450/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/kendis/ke001513.jpg
-
-         end
-
-        if element.parent.attributes["name"] == "Note"
-          #logger.info element.parent.attributes
-          #logger.info element.text
-          if @image.description.nil? || @image.description.empty?
-            @image.description = element.text
-          else
-            @image.description = @image.description + '.
-            ' + element.text
-
-          end
-
-        end
-
-
-        if element.parent.attributes["name"] == "Person"
-          #logger.info element.parent.attributes
-          #logger.info element.text
-          if @image.description.nil? || @image.description.empty?
-            @image.description = element.text
-          else
-            @image.description = @image.description + '
-            Person: ' + element.text
-          end
-
-        end
-
-
-      if element.parent.attributes["name"] == "Person"
-        #logger.info element.parent.attributes
-        #logger.info element.text
-        if @image.person.nil? || @image.person.empty?
-          @image.person = [element.text]
-        else
-          @image.person.push element.text
-        end
-
-      end
-    end
-
+      @image = create_image filename
       # all done parsing xml. Try save the image
       if @image.save
         #logger.info("Saved image")
@@ -309,8 +162,6 @@ class ImagesController < ApplicationController
       else
         logger.error("error saving image")
       end
-
-
     end
     logger.info "#{stat_counter} images. Time elapsed #{Time.now - stat_beginning} seconds"
     logger.info "#{stat_counter} images. Time elapsed #{(Time.now - stat_beginning)/60} minutes"
