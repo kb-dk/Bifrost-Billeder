@@ -131,7 +131,6 @@ class ImagesController < ApplicationController
     redirect_to  root_url, notice: "#{stat_counter} images was successfully deleted."
   end
 
-
   def loadallxmlfromglobal
     stat_counter = 0
     stat_beginning = Time.now
@@ -139,7 +138,7 @@ class ImagesController < ApplicationController
 
     #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_2500/*.xml') do |filename|
 #    Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_subset/*.xml') do |filename|
-    Dir.glob('/Users/abw/Code/SIFD-Billeder/test/fixtures/master_records_test_subset/*.xml') do |filename|
+    Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
     #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records/*.xml') do |filename|
     # 700 MB XML metadata
     #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2108/master_records/*.xml') do |filename|

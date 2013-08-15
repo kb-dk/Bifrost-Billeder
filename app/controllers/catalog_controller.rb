@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController  
+class CatalogController < ApplicationController
 
   include Blacklight::Catalog
   include Hydra::Controller::ControllerBehavior
@@ -16,9 +16,9 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-      :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm category_tesim fileidentifier_tesim id',
-      :qt => 'search',
-      :rows => 10
+        :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm category_tesim fileidentifier_tesim id',
+        :qt => 'search',
+        :rows => 10
     }
 
     # solr field configuration for search results/index views
@@ -72,7 +72,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
-   # config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
+    # config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
     config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Titel:'
     config.add_index_field solr_name('author', :stored_searchable, type: :string), :label => 'Forfatter'
     config.add_index_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
@@ -128,14 +128,14 @@ class CatalogController < ApplicationController
     # This one uses all the defaults set by the solr request handler. Which
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise. 
-    
+
     config.add_search_field 'all_fields', :label => 'Alt'
-    
+
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields. 
-    
+
     config.add_search_field('Titel') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params. 
       #field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
@@ -144,17 +144,17 @@ class CatalogController < ApplicationController
       # syntax, as eg {! qf=$title_qf }. This is neccesary to use
       # Solr parameter de-referencing like $title_qf.
       # See: http://wiki.apache.org/solr/LocalParams
-      field.solr_local_parameters = { 
-        :qf => '$title_ssm',
-        :pf => '$title_ssm'
+      field.solr_local_parameters = {
+          :qf => '$title_ssm',
+          :pf => '$title_ssm'
       }
     end
-    
+
     config.add_search_field('Forfatter') do |field|
       #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-      field.solr_local_parameters = { 
-        :qf => '$author_ssm',
-        :pf => '$author_ssm'
+      field.solr_local_parameters = {
+          :qf => '$author_ssm',
+          :pf => '$author_ssm'
       }
     end
 
@@ -165,7 +165,7 @@ class CatalogController < ApplicationController
           :pf => '$local_ssm'
       }
     end
-    
+
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as 
     # config[:default_solr_parameters][:qt], so isn't actually neccesary. 
@@ -180,28 +180,14 @@ class CatalogController < ApplicationController
     end
 =end
 
-=begin
-
-      solr_doc["title_t"] = self.title
-      solr_doc["author_t"] = self.author
-      solr_doc["category_t"] = self.category
-      solr_doc["date_start_t"] = self.date_start
-      solr_doc["description_t"] = self.description
-      solr_doc["fileidentifier_t"] = self.fileidentifier
-      solr_doc["imagetype_t"] = self.imagetype
-      solr_doc["local_t"] = self.local
-
-=end
-
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    #config.add_sort_field 'score desc, pub_date_dtsi desc', :label => 'Relevans'
-    #config.add_sort_field 'score desc, pub_date_dtsi desc, title_ssm asc', :label => 'Relevans'
-    #config.add_sort_field 'pub_date_dtsi desc, title_tesi asc', :label => 'year'
-    #config.add_sort_field 'author_tesim asc, title_tesim asc', :label => 'Forfatter'
-    #config.add_sort_field 'title_tesim asc, pub_date_dtsi desc', :label => 'Titel'
+    config.add_sort_field 'score desc, title_ssort asc', :label => 'Relevans'
+    config.add_sort_field 'title_ssort asc, author_ssort desc, local_ssort asc', :label => 'Titel'
+    config.add_sort_field 'author_ssort desc, local_ssort asc, title_ssort asc', :label => 'Forfatter'
+    config.add_sort_field 'local_ssort asc, title_ssort asc, author_ssort desc', :label => 'Genre'
 
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.

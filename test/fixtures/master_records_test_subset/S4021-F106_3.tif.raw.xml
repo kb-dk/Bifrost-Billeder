@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record>
+ <field name="record_id">
+  <value>4106</value>
+ </field>
+ <field name="Thumbnail Rotation" data-type="enumeration">
+  <value>0</value>
+ </field>
+ <field name="Color Channels" data-type="integer">
+  <value>1</value>
+ </field>
+ <field name="Bits Per Channel" data-type="integer">
+  <value>8</value>
+ </field>
+ <field name="Undo" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="Published" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="QA_error" data-type="string">
+  <value>Filen skal ligge i folderen '/daglig_prod/Releasetest_7/foto' eller en underfolder til denne, for at DOMS kan behandle den.</value>
+ </field>
+ <field name="Registrationstate" data-type="enumeration">
+  <value>Under registrering</value>
+ </field>
+ <field name="Unix File Identifier" data-type="integer">
+  <value>2137078994</value>
+ </field>
+ <field name="Publication_catalog" data-type="enumeration">
+  <value>Samling</value>
+ </field>
+ <field name="File Format Identifier" data-type="string">
+  <value>image/tiff</value>
+ </field>
+ <field name="PublishedByVersion" data-type="string">
+  <value>Publication workflow of iteration 13. Class = dk.kb.doms.components.workflow.iteration13.PublishTiffMasterWorkflow;Publish with QA version = $Revision: 1.6 $;Publish without QA version = $Revision: 1.8 $;productionRoot = /daglig_prod/Releasetest_7/foto;undoRoot = /online_master_arkiv/Releasetest_7/undo/foto;publishNonArchivalRoot = /online_master_arkiv/Releasetest_7/non-archival/foto;productionRoot = /daglig_prod/Releasetest_7/foto;</value>
+ </field>
+ <field name="Production_Catalog" data-type="string">
+  <value>rt7_foto</value>
+ </field>
+ <field name="PublicationDate" data-type="string"/>
+ <field name="LastCmdSucceeded" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.SetFieldToConstantCmd</value>
+ </field>
+ <field name="LastCmdInitiated" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.SetFieldToConstantCmd</value>
+ </field>
+ <field name="QA_status" data-type="string">
+  <value>FAILED, NOT DAMAGED, PLEASE FIX QA ERROR</value>
+ </field>
+ <field name="Document Name" data-type="string">
+  <value>S4021-F106_3.tif</value>
+ </field>
+ <field name="CHECKSUM_DISPLAY_COPY" data-type="string">
+  <value>a857ef633f8ebb56bd25546f0503547d</value>
+ </field>
+ <field name="Preservation_status" data-type="enumeration">
+  <value>Skal ikke langtidsbevares</value>
+ </field>
+ <field name="Vertical Pixels" data-type="integer">
+  <value>12069</value>
+ </field>
+ <field name="Record Name" data-type="string">
+  <value>S4021-F106_3.tif</value>
+ </field>
+ <field name="Record Creation Date" data-type="date">
+  <value>Tue May 31 10:36:26 CEST 2011</value>
+ </field>
+ <field name="Record Modification Date" data-type="date">
+  <value>Tue Mar 27 14:49:25 CEST 2012</value>
+ </field>
+ <field name="Asset Creation Date" data-type="date">
+  <value>Tue Mar 27 14:48:00 CEST 2012</value>
+ </field>
+ <field name="Asset Modification Date" data-type="date">
+  <value>Tue Mar 27 14:48:00 CEST 2012</value>
+ </field>
+ <field name="Cataloging User" data-type="string">
+  <value>cumulus</value>
+ </field>
+ <field name="Thumbnail" data-type="picture">
+  <value>[B@1d62270</value>
+ </field>
+ <field name="Categories" data-type="string">
+  <value>stresstest</value>
+ </field>
+ <field name="File Format" data-type="string">
+  <value>TIFF Image</value>
+ </field>
+ <field name="Color Mode" data-type="enumeration">
+  <value>Color</value>
+ </field>
+ <field name="Horizontal Resolution" data-type="double">
+  <value>1270.0</value>
+ </field>
+ <field name="Vertical Resolution" data-type="double">
+  <value>1270.0</value>
+ </field>
+ <field name="Image Width" data-type="double">
+  <value>9.515748031496063</value>
+ </field>
+ <field name="Image Height" data-type="double">
+  <value>9.503149606299212</value>
+ </field>
+ <field name="File Data Size" data-type="integer">
+  <value>145952234</value>
+ </field>
+ <field name="Asset Reference" data-type="blob">
+  <value>/online_master_arkiv/Releasetest_7/non-archival/foto/mary/stresstest/S4021-F106_3.tif</value>
+ </field>
+ <field name="Asset Identifier" data-type="integer">
+  <value>1332809280</value>
+ </field>
+ <field name="Asset Modification State Identifier" data-type="string">
+  <value>2010-08-16 02:56:18</value>
+ </field>
+ <field name="Thumbnail Mean Value" data-type="integer">
+  <value>97</value>
+ </field>
+ <field name="Thumbnail Standard Deviation" data-type="integer">
+  <value>37</value>
+ </field>
+ <field name="Color Model" data-type="enumeration">
+  <value>RGB Color</value>
+ </field>
+ <field name="Folder Name" data-type="string">
+  <value>/online_master_arkiv/Releasetest_7/non-archival/foto/mary/stresstest</value>
+ </field>
+ <field name="Asset Name" data-type="string">
+  <value>S4021-F106_3.tif</value>
+ </field>
+ <field name="Volume Name" data-type="string">
+  <value>online_master_test</value>
+ </field>
+ <field name="Server Name" data-type="string">
+  <value>dia-test-int-01.kb.dk</value>
+ </field>
+ <field name="Asset Data Size (Long)" data-type="long">
+  <value>145952234</value>
+ </field>
+ <field name="Image Orientation" data-type="string">
+  <value>Top left</value>
+ </field>
+ <field name="GUID" data-type="string"/>
+ <field name="Copyright" data-type="enumeration">
+  <value>Billedet er muligvis beskyttet af loven om ophavsret</value>
+ </field>
+ <field name="ID" data-type="integer">
+  <value>4106</value>
+ </field>
+ <field name="Catalog Name" data-type="string">
+  <value>rt7_foto</value>
+ </field>
+ <field name="Label" data-type="enumeration">
+  <value>-34453</value>
+ </field>
+ <field name="CHECKSUM_ORIGINAL_MASTER" data-type="string">
+  <value>a857ef633f8ebb56bd25546f0503547d</value>
+ </field>
+ <field name="Compression" data-type="string">
+  <value>Uncompressed</value>
+ </field>
+ <field name="Department" data-type="enumeration">
+  <value>DB: Digital Bevaring</value>
+ </field>
+ <field name="Mastertransferstatus" data-type="string">
+  <value>FAILED</value>
+ </field>
+ <field name="Category">
+  <value cumulusId="108">stresstest</value>
+ </field>
+</record>

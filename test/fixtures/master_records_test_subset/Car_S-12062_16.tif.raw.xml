@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record>
+ <field name="record_id">
+  <value>4120</value>
+ </field>
+ <field name="Thumbnail Rotation" data-type="enumeration">
+  <value>0</value>
+ </field>
+ <field name="Color Channels" data-type="integer">
+  <value>3</value>
+ </field>
+ <field name="Bits Per Channel" data-type="integer">
+  <value>8</value>
+ </field>
+ <field name="linkingIntellectualEntityIdentifierValue" data-type="string">
+  <value>linkingIntellectualEntityIdentifierValue_PLACE_HOLDER</value>
+ </field>
+ <field name="Undo" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="Published" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="Publication_catalog" data-type="enumeration">
+  <value>Samling</value>
+ </field>
+ <field name="File Format Identifier" data-type="string">
+  <value>image/tiff</value>
+ </field>
+ <field name="Original Size" data-type="string">
+  <value>XxY</value>
+ </field>
+ <field name="Document Name" data-type="string">
+  <value>Car_S-12062_16.tif</value>
+ </field>
+ <field name="Preservation_status" data-type="enumeration">
+  <value>Klar til langtidsbevaring</value>
+ </field>
+ <field name="Vertical Pixels" data-type="integer">
+  <value>8003</value>
+ </field>
+ <field name="Record Name" data-type="string">
+  <value>Car_S-12062_16.tif</value>
+ </field>
+ <field name="Record Creation Date" data-type="date">
+  <value>Fri May 25 15:13:33 CEST 2012</value>
+ </field>
+ <field name="Record Modification Date" data-type="date">
+  <value>Mon Jun 11 12:18:38 CEST 2012</value>
+ </field>
+ <field name="Asset Creation Date" data-type="date">
+  <value>Fri May 25 14:52:29 CEST 2012</value>
+ </field>
+ <field name="Asset Modification Date" data-type="date">
+  <value>Fri May 25 14:53:01 CEST 2012</value>
+ </field>
+ <field name="Cataloging User" data-type="string">
+  <value>cumulus</value>
+ </field>
+ <field name="Thumbnail" data-type="picture">
+  <value>[B@4f9fdc</value>
+ </field>
+ <field name="Categories" data-type="string">
+  <value>mary</value>
+ </field>
+ <field name="File Format" data-type="string">
+  <value>TIFF Image</value>
+ </field>
+ <field name="Color Mode" data-type="enumeration">
+  <value>Color</value>
+ </field>
+ <field name="Horizontal Resolution" data-type="double">
+  <value>1800.0</value>
+ </field>
+ <field name="Vertical Resolution" data-type="double">
+  <value>1800.0</value>
+ </field>
+ <field name="Image Width" data-type="double">
+  <value>3.212222222222222</value>
+ </field>
+ <field name="Image Height" data-type="double">
+  <value>4.446111111111111</value>
+ </field>
+ <field name="File Data Size" data-type="integer">
+  <value>138828878</value>
+ </field>
+ <field name="Asset Reference" data-type="blob">
+  <value>/daglig_prod/\Releasetest_7/foto/mary/Car_S-12062_16.tif</value>
+ </field>
+ <field name="Asset Identifier" data-type="integer">
+  <value>1337907149</value>
+ </field>
+ <field name="Asset Modification State Identifier" data-type="string">
+  <value>2012-05-25 02:53:01</value>
+ </field>
+ <field name="Thumbnail Mean Value" data-type="integer">
+  <value>149</value>
+ </field>
+ <field name="Thumbnail Standard Deviation" data-type="integer">
+  <value>72</value>
+ </field>
+ <field name="Color Model" data-type="enumeration">
+  <value>RGB Color</value>
+ </field>
+ <field name="ICC Profile Name" data-type="string">
+  <value>eciRGB v2</value>
+ </field>
+ <field name="Folder Name" data-type="string">
+  <value>Releasetest_7\foto\mary</value>
+ </field>
+ <field name="Asset Name" data-type="string">
+  <value>Car_S-12062_16.tif</value>
+ </field>
+ <field name="Volume Name" data-type="string">
+  <value>daglig_prod</value>
+ </field>
+ <field name="Server Name" data-type="string">
+  <value>dia-test-med-01.kb.dk</value>
+ </field>
+ <field name="Asset Data Size (Long)" data-type="long">
+  <value>138828878</value>
+ </field>
+ <field name="Image Orientation" data-type="string">
+  <value>Top left</value>
+ </field>
+ <field name="METADATA GUID" data-type="string">
+  <value>METADATA_GUID_PLACE_HOLDER</value>
+ </field>
+ <field name="ID" data-type="integer">
+  <value>4120</value>
+ </field>
+ <field name="Catalog Name" data-type="string">
+  <value>rt7_foto</value>
+ </field>
+ <field name="Original Base Material" data-type="enumeration">
+  <value>Glas</value>
+ </field>
+ <field name="Original Preservationstate" data-type="enumeration">
+  <value>D (Akut dårlig tilstand)</value>
+ </field>
+ <field name="Original Color" data-type="enumeration">
+  <value>Farver</value>
+ </field>
+ <field name="Compression" data-type="string">
+  <value>Uncompressed</value>
+ </field>
+ <field name="Category">
+  <value cumulusId="114">mary</value>
+ </field>
+</record>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record>
+ <field name="record_id">
+  <value>4107</value>
+ </field>
+ <field name="Thumbnail Rotation" data-type="enumeration">
+  <value>0</value>
+ </field>
+ <field name="Color Channels" data-type="integer">
+  <value>1</value>
+ </field>
+ <field name="Bits Per Channel" data-type="integer">
+  <value>8</value>
+ </field>
+ <field name="Undo" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="Published" data-type="boolean">
+  <value>false</value>
+ </field>
+ <field name="QA_error" data-type="string"/>
+ <field name="Registrationstate" data-type="enumeration">
+  <value>Under registrering</value>
+ </field>
+ <field name="Unix File Identifier" data-type="integer">
+  <value>-1990025126</value>
+ </field>
+ <field name="Publication_catalog" data-type="enumeration">
+  <value>Samling</value>
+ </field>
+ <field name="File Format Identifier" data-type="string">
+  <value>image/tiff</value>
+ </field>
+ <field name="PublishedByVersion" data-type="string">
+  <value>Publication workflow of iteration 13. Class = dk.kb.doms.components.workflow.iteration13.PublishTiffMasterWorkflow;Publish with QA version = $Revision: 1.6 $;Publish without QA version = $Revision: 1.8 $;productionRoot = /daglig_prod/Releasetest_7/foto;undoRoot = /online_master_arkiv/Releasetest_7/undo/foto;publishNonArchivalRoot = /online_master_arkiv/Releasetest_7/non-archival/foto;productionRoot = /daglig_prod/Releasetest_7/foto;</value>
+ </field>
+ <field name="Production_Catalog" data-type="string">
+  <value>rt7_foto</value>
+ </field>
+ <field name="PublicationDate" data-type="string"/>
+ <field name="LastCmdSucceeded" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.FinishTransactionCmd@19ba1d8</value>
+ </field>
+ <field name="LastCmdInitiated" data-type="string">
+  <value>dk.kb.doms.api.oais.sipdipcommands.FinishTransactionCmd@19ba1d8</value>
+ </field>
+ <field name="QA_status" data-type="string"/>
+ <field name="Document Name" data-type="string">
+  <value>S4021-F107_8.tif</value>
+ </field>
+ <field name="CHECKSUM_DISPLAY_COPY" data-type="string">
+  <value>884befc848c92da19717c132e7d30f1b</value>
+ </field>
+ <field name="Preservation_status" data-type="enumeration">
+  <value>Skal ikke langtidsbevares</value>
+ </field>
+ <field name="Vertical Pixels" data-type="integer">
+  <value>12068</value>
+ </field>
+ <field name="Record Name" data-type="string">
+  <value>S4021-F107_8.tif</value>
+ </field>
+ <field name="Record Creation Date" data-type="date">
+  <value>Thu Apr 19 13:07:22 CEST 2012</value>
+ </field>
+ <field name="Record Modification Date" data-type="date">
+  <value>Thu Apr 19 13:49:34 CEST 2012</value>
+ </field>
+ <field name="Asset Creation Date" data-type="date">
+  <value>Thu Apr 19 13:49:33 CEST 2012</value>
+ </field>
+ <field name="Asset Modification Date" data-type="date">
+  <value>Thu Apr 19 13:49:33 CEST 2012</value>
+ </field>
+ <field name="Cataloging User" data-type="string">
+  <value>cumulus</value>
+ </field>
+ <field name="Thumbnail" data-type="picture">
+  <value>[B@5e1077</value>
+ </field>
+ <field name="Categories" data-type="string">
+  <value>stresstest</value>
+ </field>
+ <field name="File Format" data-type="string">
+  <value>TIFF Image</value>
+ </field>
+ <field name="Color Mode" data-type="enumeration">
+  <value>Grayscale</value>
+ </field>
+ <field name="Horizontal Resolution" data-type="double">
+  <value>1270.0</value>
+ </field>
+ <field name="Vertical Resolution" data-type="double">
+  <value>1270.0</value>
+ </field>
+ <field name="Image Width" data-type="double">
+  <value>9.489763779527559</value>
+ </field>
+ <field name="Image Height" data-type="double">
+  <value>9.50236220472441</value>
+ </field>
+ <field name="File Data Size" data-type="integer">
+  <value>145540534</value>
+ </field>
+ <field name="Asset Reference" data-type="blob">
+  <value>/daglig_prod/Releasetest_7/foto/mary/stresstest/S4021-F107_8.tif</value>
+ </field>
+ <field name="Asset Identifier" data-type="integer">
+  <value>1334796573</value>
+ </field>
+ <field name="Asset Modification State Identifier" data-type="string">
+  <value>2010-08-16 02:15:38</value>
+ </field>
+ <field name="Thumbnail Mean Value" data-type="integer">
+  <value>109</value>
+ </field>
+ <field name="Thumbnail Standard Deviation" data-type="integer">
+  <value>39</value>
+ </field>
+ <field name="Color Model" data-type="enumeration">
+  <value>Grayscale</value>
+ </field>
+ <field name="Folder Name" data-type="string">
+  <value>/daglig_prod/Releasetest_7/foto/mary/stresstest</value>
+ </field>
+ <field name="Asset Name" data-type="string">
+  <value>S4021-F107_8.tif</value>
+ </field>
+ <field name="Volume Name" data-type="string">
+  <value>daglig_prod</value>
+ </field>
+ <field name="Server Name" data-type="string">
+  <value>dia-test-med-01.kb.dk</value>
+ </field>
+ <field name="Asset Data Size (Long)" data-type="long">
+  <value>145540534</value>
+ </field>
+ <field name="Image Orientation" data-type="string">
+  <value>Top left</value>
+ </field>
+ <field name="GUID" data-type="string"/>
+ <field name="Copyright" data-type="enumeration">
+  <value>Billedet er muligvis beskyttet af loven om ophavsret</value>
+ </field>
+ <field name="ID" data-type="integer">
+  <value>4107</value>
+ </field>
+ <field name="Catalog Name" data-type="string">
+  <value>rt7_foto</value>
+ </field>
+ <field name="CHECKSUM_ORIGINAL_MASTER" data-type="string">
+  <value>884befc848c92da19717c132e7d30f1b</value>
+ </field>
+ <field name="Compression" data-type="string">
+  <value>Uncompressed</value>
+ </field>
+ <field name="Department" data-type="enumeration">
+  <value>DB: Digital Bevaring</value>
+ </field>
+ <field name="Mastertransferstatus" data-type="string">
+  <value>OK</value>
+ </field>
+ <field name="Category">
+  <value cumulusId="115">stresstest</value>
+ </field>
+</record>
