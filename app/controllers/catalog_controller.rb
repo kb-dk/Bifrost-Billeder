@@ -13,10 +13,16 @@ class CatalogController < ApplicationController
   CatalogController.solr_search_params_logic += [:exclude_unwanted_models]
   #self.solr_search_params_logic = [:default_solr_parameters , :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr, :add_sorting_paging_to_solr ]
 
+  def self.title_fields
+    res = Solrizer.solr_name('title', :stored_sortable, type: :string)
+    logger.info 'Solrizer results: ' + res.to_s
+
+    res
+  end
 
   configure_blacklight do |config|
     config.default_solr_params = {
-        :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm category_tesim fileidentifier_tesim id',
+        :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm imagetype_tesim category_tesim fileidentifier_tesim id',
         :qt => 'search',
         :rows => 10
     }
@@ -52,14 +58,11 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name('author', :facetable), :label => 'Forfatter:', :limit => 11
     #config.add_facet_field solr_name('author_tesim', :facetable, :show=>true), :label => 'Author'
     config.add_facet_field solr_name('category', :facetable), :label => 'Kategori:', :limit => 11
+    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type', :limit => 11
     config.add_facet_field solr_name('local', :facetable), :label => 'Område:', :limit => 11
     config.add_facet_field solr_name('genre', :facetable), :label => 'Genre:', :limit => 11
 
     #config.add_facet_field solr_name('category_tesim', :facetable, :show=>true), :label => 'Category'
-
-    #config.add_facet_field solr_name('start_date', :facetable), :label => 'Publication Year'
-    #config.add_facet_field solr_name('imagetype_tesim', :facetable), :label => 'Image Type', :limit => 20
-    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type:', :limit => 11
 
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -109,7 +112,6 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'Tidspunkt:'
     config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_show_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
-
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -184,16 +186,15 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, title_ssort asc', :label => 'Relevans'
-    config.add_sort_field 'title_ssort asc, score desc', :label => 'Titel'
-    config.add_sort_field 'author_ssort desc, score desc', :label => 'Forfatter'
-    config.add_sort_field 'local_ssort asc, score desc', :label => 'Genre'
+    config.add_sort_field 'score desc', :label => 'Relevans'
+    config.add_sort_field 'title_si asc', :label => 'Titel'
+    config.add_sort_field 'author_si asc', :label => 'Forfatter'
+    config.add_sort_field 'imagetype_si asc', :label => 'Type'
+    config.add_sort_field 'category_si asc', :label => 'Kategori'
 
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.
     config.spell_max = 5
   end
 
-
-
-end 
+end

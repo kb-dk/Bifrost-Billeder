@@ -153,6 +153,7 @@ class ImagesController < ApplicationController
 
     #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_2500/*.xml') do |filename|
 #    Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_subset/*.xml') do |filename|
+    #Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
     Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
       @image = create_image filename
       # all done parsing xml. Try save the image
