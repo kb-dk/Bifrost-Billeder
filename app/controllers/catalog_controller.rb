@@ -56,6 +56,8 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
     config.add_facet_field solr_name('author', :facetable), :label => 'Forfatter:', :limit => 11
+    config.add_facet_field solr_name('person', :facetable), :label => 'Person:', :limit => 11
+
     #config.add_facet_field solr_name('author_tesim', :facetable, :show=>true), :label => 'Author'
     config.add_facet_field solr_name('category', :facetable), :label => 'Kategori:', :limit => 11
     config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type', :limit => 11
@@ -78,6 +80,7 @@ class CatalogController < ApplicationController
     # config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Title:'
     config.add_index_field solr_name('title', :stored_searchable, type: :string), :label => 'Titel:'
     config.add_index_field solr_name('author', :stored_searchable, type: :string), :label => 'Forfatter'
+    config.add_index_field solr_name('person', :stored_searchable, type: :string), :label => 'Person'
     config.add_index_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
     config.add_index_field solr_name('category', :stored_searchable, type: :string), :label => 'Kategori:'
     config.add_index_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'
@@ -105,6 +108,8 @@ class CatalogController < ApplicationController
 
     config.add_show_field solr_name('title', :stored_searchable, type: :string), :label => 'Titel:'
     config.add_show_field solr_name('author', :stored_searchable, type: :string), :label => 'Forfatter'
+    config.add_show_field solr_name('person', :stored_searchable, type: :string), :label => 'Person'
+
     config.add_show_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
     config.add_show_field solr_name('category', :stored_searchable, type: :string), :label => 'Kategori:'
     config.add_show_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'

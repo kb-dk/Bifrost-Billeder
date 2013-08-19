@@ -14,7 +14,16 @@
   </div>
 
 
-  <div class="control-group">
+    <div class="control-group">
+      <%= f.label :person, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :person, :class => 'text_field' %>
+      </div>
+    </div>
+
+
+
+    <div class="control-group">
     <%= f.label :imagetype, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :imagetype, :class => 'text_field' %>

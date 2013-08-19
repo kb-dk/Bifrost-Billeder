@@ -35,10 +35,9 @@ end
 # For testing with rspec
 group :development, :test do
   gem 'test-unit'
+  gem 'ruby-prof'
   gem 'rspec-rails'
   gem 'jettywrapper'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'spork'
   gem 'debugger'
   gem 'equivalent-xml'
@@ -46,6 +45,11 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.1'
   gem 'guard-spork'
   gem 'selenium-webdriver'
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 
