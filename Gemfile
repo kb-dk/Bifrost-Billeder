@@ -34,6 +34,7 @@ end
 # You will probably want to use these to run the tests you write for your hydra head
 # For testing with rspec
 group :development, :test do
+  gem 'test-unit'
   gem 'rspec-rails'
   gem 'jettywrapper'
   gem 'better_errors'
