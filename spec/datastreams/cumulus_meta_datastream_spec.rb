@@ -3,9 +3,10 @@ require 'spec_helper'
 describe CumulusMetaDatastream do
 
   before(:each) do
-     fixture :image
-   # @sample = fixture("sample_metadata.xml")
-    @sample = fixture_file_upload("image.xml")
+     #fixture :image
+    #@sample = fixture("image.xml")
+    #@sample = fixture_file_upload("image.xml")
+    @sample = Rails.root.join("test", "fixtures", "image.xml")
     @ds = CumulusMetaDatastream.from_xml(@sample)
   end
 
@@ -19,8 +20,8 @@ describe CumulusMetaDatastream do
   end
 
 
-  it "should expose path_to_image for an image" do
-    @ds.path_to_image.should == ["/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/kendis/ke000001.tif"]
+  it "should expose fileidentifier for an image" do
+    @ds.fileidentifier.should == ["ke000001.tif"]
   end
 
 end

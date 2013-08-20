@@ -67,7 +67,8 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(params[:image])
-
+    @image.created_at = DateTime.now
+    @image.editor = ">>>READ FROM SESSION<<<"
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -85,6 +86,10 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     respond_to do |format|
+
+      @image.update_at = DateTime.now
+      @image.editor = ">>>READ FROM SESSION<<<"
+
       if @image.update_attributes(params[:image])
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { head :no_content }
@@ -147,14 +152,17 @@ class ImagesController < ApplicationController
   end
 
   def loadallxmlfromglobal
+    localpath = params[:path]
     stat_counter = 0
     stat_beginning = Time.now
-    logger.info("LOAD ALL XML FILES FROM SYSTEM")
+    if(localpath.blank?)
+      localpath = 'test/fixtures/master_records_test_subset/*.xml'
+    end
+    logger.info("LOAD ALL XML FILES FROM SYSTEM path #{localpath} ")
 
-    #Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_2500/*.xml') do |filename|
-#    Dir.glob('/Users/abw/Downloads/Samlingsbilleder_2136/master_records_subset/*.xml') do |filename|
-    #Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
-    Dir.glob('test/fixtures/master_records_test_subset/*.xml') do |filename|
+
+    Dir.glob(localpath) do |filename|
+
       @image = create_image filename
       # all done parsing xml. Try save the image
       if @image.save
