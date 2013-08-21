@@ -57,6 +57,11 @@
                 <dd class=""><%= document["local_ssm"].to_sentence.html_safe rescue nil %></dd>
             <% end %>
 
+            <% if document["copyright_ssm"] %>
+                <dt class="">Copyright:</dt>
+                <dd class=""><%= document["copyright_ssm"].to_sentence.html_safe rescue nil %></dd>
+            <% end %>
+
 
           </dl>
 

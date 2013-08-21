@@ -68,6 +68,9 @@ module ImagesHelper
           @image.person << element.text
         end
       end
+      if element.parent.attributes['name'] == 'Copyright'
+        @image.copyright = element.text
+      end
     end
 
     @image

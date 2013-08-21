@@ -116,6 +116,7 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    hashie (2.0.5)
     hike (1.2.3)
     hooks (0.3.1)
     httparty (0.11.0)
@@ -173,6 +174,7 @@ GEM
       less (~> 2.3.1)
     libv8 (3.11.8.17)
     listen (0.7.3)
+    log4r (1.1.9)
     logger (1.2.8)
     lumberjack (1.0.4)
     mail (2.5.4)
@@ -185,6 +187,7 @@ GEM
     mini_portile (0.5.1)
     multi_json (1.7.9)
     multi_xml (0.5.5)
+    net-ldap (0.2.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     nom-xml (0.5.1)
@@ -198,12 +201,21 @@ GEM
       mediashelf-loggable
       nokogiri (>= 1.4.2)
       solrizer (~> 3.1.0)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-ldap (1.0.3)
+      net-ldap (~> 0.2.2)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pyu-ruby-sasl (0.0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -265,6 +277,7 @@ GEM
       mime-types
       nokogiri
       rest-client
+    rubyntlm (0.1.1)
     rubyzip (0.9.9)
     sass (3.2.10)
     sass-rails (3.2.6)
@@ -340,6 +353,8 @@ DEPENDENCIES
   jquery-rails
   less
   less-rails
+  log4r (= 1.1.9)
+  omniauth-ldap
   rb-inotify (~> 0.8.8)
   rspec-rails
   sass-rails (~> 3.2.3)

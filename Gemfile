@@ -17,6 +17,9 @@ gem 'bootswatch-rails'
 gem 'sqlite3'
 gem 'httparty'
 
+#logging
+gem 'log4r', '1.1.9'
+
 
 # Rails uses asset pipeline.  You will need these gems for used your assets in development.
 # However, you won't need them in production because they will be precompiled.

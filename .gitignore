@@ -16,3 +16,8 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Local config files #
+######################
+*.local.yml
+

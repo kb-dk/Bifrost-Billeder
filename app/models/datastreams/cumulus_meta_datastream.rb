@@ -1,5 +1,4 @@
 class CumulusMetaDatastream < ActiveFedora::OmDatastream
-#class CumulusMetaDatastream < ActiveFedora::NokogiriDatastream
 
   set_terminology do |t|
     t.root(path: 'fields')
@@ -10,6 +9,7 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     #t.author(index_as: [:searchable, :facetable, :displayable, :sortable])
     t.category(:type => :text, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>'category', :label=>'Category')
     t.genre(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>'genre', :label=>'Genre')
+    t.copyright(:type => :string, :index_as => [:stored_searchable, :displayable, :sortable, :facetable], :path => 'copyright', :label => 'Copyright')
     #t.category(index_as: [:searchable, :facetable, :displayable])
     t.date_start(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'date_start', :label=>'date_start')
     t.date_end
