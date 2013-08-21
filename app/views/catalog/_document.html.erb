@@ -36,14 +36,25 @@
             <% if document["category_ssm"] %>
                 <dt class="">Kategori:</dt>
                 <dd class="">
-                    <% document["category_ssm"].each do |cat|  %>
-                        <!--p class="label label-info"-->
-                        <p>
+                  <% document["category_ssm"].each do |cat|  %>
+                      <span class="badge"> <!-- class="label label-info"-->
                         <%= cat.html_safe rescue nil %>
-                        </p>
-                    <% end %>
+                      </span>
+                  <% end %>
                 </dd>
-                <!--dd class="label"><%= document["category_ssm"].html_safe rescue nil %></dd--->
+            <% end %>
+
+
+            <% if document["person_ssm"] %>
+                <dt class="">Person:</dt>
+                <dd class="">
+                  <% document["person_ssm"].each do |person|  %>
+                      <!--span class="label label-info"-->
+                       <span>
+                        <%= person.html_safe rescue nil %>
+                      </span>
+                  <% end %>
+                </dd>
             <% end %>
 
             <% if document["genre_ssm"] %>

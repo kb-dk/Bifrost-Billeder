@@ -25,7 +25,7 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     #t.imagetype(:type => :string, :index_as=>[:facetable, :stored_searchable, :displayable, :sortable, ],:path=>'imagetype', :label=>'imagetype')
     t.local(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable,  :facetable],:path=>'local', :label=>'Lokal')
     t.path_to_image(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'pathtoimage', :label=>'pathtoimage')
-    t.opstilling
+    t.opstilling(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'opstilling', :label=>'opstilling')
   end
 
   def self.xml_template
