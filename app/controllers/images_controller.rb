@@ -158,8 +158,8 @@ class ImagesController < ApplicationController
     stat_counter = 0
     stat_beginning = Time.now
     if(localpath.blank?)
-      #localpath = 'test/fixtures/master_records_test_subset/*.xml'
-      localpath = 'test/fixtures/masters2/*.xml'
+      localpath = 'test/fixtures/master_records_test_subset/*.xml'
+      #localpath = 'test/fixtures/masters2/*.xml'
     end
     logger.info("LOAD ALL XML FILES FROM SYSTEM path #{localpath} ")
 
