@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'hydra', '6.0.0'
 #gem 'jettywrapper'
 gem 'bootswatch-rails'
+gem 'omniauth'
+gem 'omniauth-cas'
 
 #gem 'blacklight'
 #gem 'hydra-head', '6.0.0'

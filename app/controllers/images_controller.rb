@@ -4,6 +4,8 @@ require 'rexml/document'
 class ImagesController < ApplicationController
   include ImagesHelper
 
+  load_and_authorize_resource
+
   # GET /images
   # GET /images.json
   def index
@@ -156,7 +158,8 @@ class ImagesController < ApplicationController
     stat_counter = 0
     stat_beginning = Time.now
     if(localpath.blank?)
-      localpath = 'test/fixtures/master_records_test_subset/*.xml'
+      #localpath = 'test/fixtures/master_records_test_subset/*.xml'
+      localpath = 'test/fixtures/masters2/*.xml'
     end
     logger.info("LOAD ALL XML FILES FROM SYSTEM path #{localpath} ")
 

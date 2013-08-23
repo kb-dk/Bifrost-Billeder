@@ -48,6 +48,26 @@
             image_tag ("http://www.kb.dk/imageService/w850/"+@image.path_to_image.sub('.tif', ".jpg"))
           end
       %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:license_title) %>:</strong></dt>
+  <% if @image.license_title %>
+      <dd><%= @image.license_title %></dd>
+  <% else %>
+      <dd>ingen licens defineret&nbsp;</dd>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:license_url) %>:</strong></dt>
+  <% if @image.license_url %>
+      <dd><%= @image.license_url %></dd>
+  <% else %>
+      <dd>ingen licens defineret&nbsp;</dd>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:license_description) %>:</strong></dt>
+  <% if @image.license_description %>
+      <dd><%= raw @image.license_description.html_safe %></dd>
+  <% else %>
+      <dd>ingen licens defineret&nbsp;</dd>
+  <% end %>
+
 </dl>
 
   <h3 id="historik">Historik og Tidligere versioner</h3>

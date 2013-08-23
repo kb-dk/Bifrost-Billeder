@@ -62,7 +62,13 @@ module SIFDBilleder
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
     config.assets.compress = !Rails.env.development?
 
-
+    # Configuration for CAS authentication
+    config.cas = {
+        :host => 'www.kb.dk',
+        :login_url => '/cas/login',
+        :service_validate_url => '/cas/serviceValidate',
+        :ssl => true
+    }
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
