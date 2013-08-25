@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
+      ## Model specific
+      t.string :pid
+      t.string :name
 
       t.timestamps
     end

@@ -1,26 +1,23 @@
 source 'https://rubygems.org'
 
-#gem 'blacklight'
 gem 'hydra', '6.0.0'
-#gem 'jettywrapper'
 gem 'bootswatch-rails'
 gem 'omniauth'
 gem 'omniauth-cas'
-
-#gem 'blacklight'
-#gem 'hydra-head', '6.0.0'
-#gem 'jettywrapper'
-#gem 'rails', '3.2.13'
-#gem 'hydra-mods'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'httparty'
 
 #logging
 gem 'log4r', '1.1.9'
+
+gem "unicode", :platforms => [:mri_18, :mri_19]
+gem "devise"
+gem "devise-guests", "~> 0.3"
+gem "bootstrap-sass"
+gem "therubyracer"
+#gem "client_side_validations", "3.2.0"
+gem 'thin'
 
 
 # Rails uses asset pipeline.  You will need these gems for used your assets in development.
@@ -57,30 +54,3 @@ group :development do
   gem "binding_of_caller"
 end
 
-
-
-
-gem "unicode", :platforms => [:mri_18, :mri_19]
-gem "devise"
-gem "devise-guests", "~> 0.3"
-gem "bootstrap-sass"
-gem "therubyracer"
-#gem "client_side_validations", "3.2.0"
-gem 'thin'
-
-
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
