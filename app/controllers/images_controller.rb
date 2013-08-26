@@ -4,7 +4,7 @@ require 'rexml/document'
 class ImagesController < ApplicationController
   include ImagesHelper
 
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /images
   # GET /images.json
