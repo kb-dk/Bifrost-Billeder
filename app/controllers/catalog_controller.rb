@@ -193,9 +193,14 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc', :label => 'Relevans'
     config.add_sort_field 'title_si asc', :label => 'Titel'
+    config.add_sort_field 'title_si desc', :label => 'Titel (Å->A)'
+
     config.add_sort_field 'author_si asc', :label => 'Forfatter'
+    config.add_sort_field 'author_si desc', :label => 'Forfatter (Å->A)'
     config.add_sort_field 'imagetype_si asc', :label => 'Type'
+    config.add_sort_field 'imagetype_si desc', :label => 'Type (Å->A)'
     config.add_sort_field 'category_si asc', :label => 'Kategori'
+    config.add_sort_field 'category_si desc', :label => 'Kategori (Å->A)'
 
     # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.
