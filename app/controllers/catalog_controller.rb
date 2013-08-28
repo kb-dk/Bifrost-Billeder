@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-        :qf => 'title_tesim title_ssm author_tesim description_tesim local_ssm imagetype_tesim category_tesim fileidentifier_tesim id',
+        :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim id',
         :qt => 'search',
         :rows => 10
     }
@@ -168,8 +168,8 @@ class CatalogController < ApplicationController
     config.add_search_field('Område') do |field|
       #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
       field.solr_local_parameters = {
-          :qf => '$local_ssm',
-          :pf => '$local_ssm'
+          :qf => '$local_tesim',
+          :pf => '$local_tesim'
       }
     end
 

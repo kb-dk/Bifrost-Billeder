@@ -1,0 +1,8 @@
+development:
+  admin_pids: ["PID000396426", "jatr-pid"]
+
+test:
+  admin_pids: ["jatr-pid"]
+
+production:
+  admin_pids: ["jatr-pid"]

@@ -20,7 +20,8 @@ class Users::SessionsController < ApplicationController
     res_arg = 'return_url'
     res_url = session.delete(res_arg)
     logger.info "Redirecting to: #{res_url.to_s} for #{res_arg}"
-    redirect_to res_url, :notice => "logged in #{auth.extra.gn} #{auth.extra.sn}", :only_path => true
+    #redirect_to res_url, :notice => "logged in #{auth.extra.gn} #{auth.extra.sn}", :only_path => true
+    redirect_to root_url, :notice => "logged in #{auth.extra.gn} #{auth.extra.sn}", :only_path => true
   end
 
   def destroy
