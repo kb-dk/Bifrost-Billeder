@@ -46,6 +46,21 @@
   <dd><%= @image.geo_lat %></dd>
   <dt><strong><%= model_class.human_attribute_name(:geo_lng) %>:</strong></dt>
   <dd><%= @image.geo_lng %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+
+  <dd>
+    <% if @image.person.kind_of?(Array) %>
+        <% @image.person.each do |per| %>
+
+            <p class="label label-success"><%= per %></p>
+
+        <% end %>
+    <% else %>
+        <%= @image.person %>
+
+    <% end %>
+  </dd>
+
   <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
   <dd><%= @image.fileidentifier %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
@@ -59,6 +74,21 @@
         <% end %>
     <% else %>
         <%= @image.category %>
+
+    <% end %>
+  </dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
+
+  <dd>
+    <% if @image.keywords.kind_of?(Array) %>
+        <% @image.keywords.each do |keyword| %>
+
+            <p class="label label-info"><%= keyword %></p>
+
+        <% end %>
+    <% else %>
+        <%= @image.keywords %>
 
     <% end %>
   </dd>
@@ -126,6 +156,18 @@
         <dd><%=  image.local %></dd>
         <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
         <dd><%= image.fileidentifier.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+
+        <dd>
+          <% image.person.each do |per| %>
+
+              <!--p class="label label-info">    </p-->
+              <p><%= per %></p>
+
+          <% end %>
+        </dd>
+
         <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
 
         <dd>
@@ -136,8 +178,18 @@
 
         <% end %>
         </dd>
-        <!--dd><%= image.category %></dd-->
 
+
+        <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
+
+        <dd>
+          <% image.keywords.each do |keyword| %>
+
+              <!--p class="label label-info">    </p-->
+              <p><%= keyword %></p>
+
+          <% end %>
+        </dd>
         <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
         <dd><%= image.date_start.first %></dd>
 
