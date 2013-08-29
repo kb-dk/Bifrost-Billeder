@@ -50,7 +50,6 @@ class ApplicationController < ActionController::Base
     current_user || guest_user
   end
 
-
   #redirect to some sane access denied page
   # Todo: create that page
   rescue_from CanCan::AccessDenied do |exception|
