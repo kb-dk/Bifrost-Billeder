@@ -1,10 +1,32 @@
+<script src="http://openlayers.org/api/OpenLayers.js"></script>
+<script src="http://mapstraction.com/mxn/build/latest/mxn.js?(openlayers)" type="text/javascript"></script>
+<style type="text/css">
+    #map {
+        height: 400px;
+        width: 850px;
+    }
+</style>
 <script>
     $('#historik').click(function() {
         $('#vishistorikken').toggle('slow', function() {
             // Animation complete.
         });
     });
-  </script>
+
+    jQuery(document).ready(function() {
+        var map = new mxn.Mapstraction('map', 'openlayers');
+        //var lat = <%= defined?(true) ? @image.geo_lat : 55.673457 %>
+        var lat = <%= @image.geo_lat  || 55.673457 %>
+        //var lon = <%= defined?(true) ? @image.geo_lng : 12.58272 %>
+        var lon = <%= @image.geo_lng  || 12.58272 %>
+        //55.673457,12.58272
+
+        var latlon = new mxn.LatLonPoint(lat, lon);
+
+        map.setCenterAndZoom(latlon, 6);
+        console.log("action DR - Lat: " + lat + " lng: " + lon);
+    });
+</script>
 <%- model_class = Image -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -20,6 +42,25 @@
 
   <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
   <dd><%= @image.local %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:geo_lat) %>:</strong></dt>
+  <dd><%= @image.geo_lat %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:geo_lng) %>:</strong></dt>
+  <dd><%= @image.geo_lng %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+
+  <dd>
+    <% if @image.person.kind_of?(Array) %>
+        <% @image.person.each do |per| %>
+
+            <p class="label label-success"><%= per %></p>
+
+        <% end %>
+    <% else %>
+        <%= @image.person %>
+
+    <% end %>
+  </dd>
+
   <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
   <dd><%= @image.fileidentifier %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
@@ -37,9 +78,25 @@
     <% end %>
   </dd>
 
+  <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
+
+  <dd>
+    <% if @image.keywords.kind_of?(Array) %>
+        <% @image.keywords.each do |keyword| %>
+
+            <p class="label label-info"><%= keyword %></p>
+
+        <% end %>
+    <% else %>
+        <%= @image.keywords %>
+
+    <% end %>
+  </dd>
+
   <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
   <dd><%= @image.date_start %></dd>
-
+  <dt><strong><%= model_class.human_attribute_name(:date_txt) %>:</strong></dt>
+  <dd><%= @image.date_txt %></dd>
 
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @image.description %></dd>
@@ -68,6 +125,8 @@
       <dd>ingen licens defineret&nbsp;</dd>
   <% end %>
 
+  <dt>Geo</dt>
+  <dd> <div id="map"></div></dd>
 </dl>
 
   <h3 id="historik">Historik og Tidligere versioner</h3>
@@ -98,6 +157,18 @@
         <dd><%=  image.local %></dd>
         <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
         <dd><%= image.fileidentifier.first %></dd>
+
+        <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
+
+        <dd>
+          <% image.person.each do |per| %>
+
+              <!--p class="label label-info">    </p-->
+              <p><%= per %></p>
+
+          <% end %>
+        </dd>
+
         <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
 
         <dd>
@@ -108,8 +179,18 @@
 
         <% end %>
         </dd>
-        <!--dd><%= image.category %></dd-->
 
+
+        <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
+
+        <dd>
+          <% image.keywords.each do |keyword| %>
+
+              <!--p class="label label-info">    </p-->
+              <p><%= keyword %></p>
+
+          <% end %>
+        </dd>
         <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
         <dd><%= image.date_start.first %></dd>
 
@@ -126,10 +207,14 @@
         <dt><strong><%= model_class.human_attribute_name(:opstilling) %>:</strong></dt>
         <dd><%= image.opstilling.first %></dd>
 
-
+        <dt>Geo</dt>
+        <dd></dd>
         <dt><strong><%= model_class.human_attribute_name(:lcsh) %>:</strong></dt>
         <dd><small><a href="http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %>">http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %></a></small></dd>
   </div>
+
+
+
   <% end %>
 
 

@@ -11,6 +11,7 @@ if SIFDBilleder::Application.config.stub_authentication
   OmniAuth.config.test_mode = true
   OmniAuth.config.add_mock(:cas, {
     :uid => "username",
+    :pid => "123456",
     :info => { :name => "Test User" },  
     :extra => {
       :user => "username",

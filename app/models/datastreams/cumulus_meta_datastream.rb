@@ -11,9 +11,9 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     t.genre(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>'genre', :label=>'Genre')
     t.copyright(:type => :string, :index_as => [:stored_searchable, :displayable, :sortable, :facetable], :path => 'copyright', :label => 'Copyright')
     #t.category(index_as: [:searchable, :facetable, :displayable])
-    t.date_start(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'date_start', :label=>'date_start')
+    t.date_start(:type => :string, :index_as=>[:stored_searchable, :displayable, :facetable],:path=>'date_start', :label=>'date_start')
     t.date_end
-    t.date_txt
+    t.date_txt(:type => :string, :index_as=>[:stored_searchable, :displayable, :facetable],:path=>'date_txt', :label=>'date_txt')
     t.description(:type => :text, :index_as=>[:stored_searchable, :displayable],:path=>'description', :label=>'Description')
     t.lcsh(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'lcsh', :label=>'lcsh')
     #t.description(index_as: [:searchable, :displayable ])
@@ -21,6 +21,7 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     #t.fileidentifier(index_as: [:searchable, :displayable, :sortable])
     t.geo_lat
     t.geo_lng
+    t.keywords(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>{:attribute=>'keywords'}, :label=>'keywords')
     t.imagetype(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>{:attribute=>'imagetype'}, :label=>'Imagetype')
     #t.imagetype(:type => :string, :index_as=>[:facetable, :stored_searchable, :displayable, :sortable, ],:path=>'imagetype', :label=>'imagetype')
     t.local(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable,  :facetable],:path=>'local', :label=>'Lokal')

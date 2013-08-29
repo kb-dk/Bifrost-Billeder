@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-        :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim id',
+        :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim keywords_tesim id',
         :qt => 'search',
         :rows => 10
     }
@@ -55,13 +55,17 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
-    config.add_facet_field solr_name('author', :facetable), :label => 'Forfatter:', :limit => 11
+    config.add_facet_field solr_name('author', :facetable), :label => 'Ophav:', :limit => 11
     config.add_facet_field solr_name('person', :facetable), :label => 'Person:', :limit => 11
 
     #config.add_facet_field solr_name('author_tesim', :facetable, :show=>true), :label => 'Author'
     config.add_facet_field solr_name('category', :facetable), :label => 'Kategori:', :limit => 11
     config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type', :limit => 11
     config.add_facet_field solr_name('local', :facetable), :label => 'Område:', :limit => 11
+    config.add_facet_field solr_name('keywords', :facetable), :label => 'Emneord:', :limit => 17
+    config.add_facet_field solr_name('date_txt', :facetable), :label => 'År:', :limit => 17
+
+
     config.add_facet_field solr_name('genre', :facetable), :label => 'Genre:', :limit => 11
 
     #config.add_facet_field solr_name('category_tesim', :facetable, :show=>true), :label => 'Category'
@@ -112,11 +116,14 @@ class CatalogController < ApplicationController
 
     config.add_show_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
     config.add_show_field solr_name('category', :stored_searchable, type: :string), :label => 'Kategori:'
+    config.add_show_field solr_name('keywords', :stored_searchable, type: :string), :label => 'Emneord:'
     config.add_show_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'
     config.add_show_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
-    config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'Tidspunkt:'
+    config.add_show_field solr_name('date_txt', :stored_searchable, type: :string), :label => 'Tidspunkt:'
+    config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'År:'
     config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_show_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
+    config.add_show_field solr_name('opstilling', :stored_searchable, type: :string), :label => 'Opstilling'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
