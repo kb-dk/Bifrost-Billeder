@@ -34,8 +34,8 @@ class Image < BifrostObject
       when 'AAAAA'
         image.permissions = [{:name=>'public', :access=>'edit', :type=>'group'},
                              {:name=>'registered', :access=>'edit', :type=>'group'}]
-        image.license_title = image.copyright
-        image.license_url = 'http://www.kb.dk'
+        image.license_title = 'Creative Commons'
+        image.license_url = 'http://creativecommons.org'
         image.license_description = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.da"><img alt="Creative Commons licens" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"/></a>'
       when 'CCCCCCCCC'
         image.permissions = [{:name=>'public', :access=>'discover', :type=>'group'},
@@ -44,7 +44,6 @@ class Image < BifrostObject
         image.license_url = 'http://www.kb.dk'
         image.license_description = 'CCCCCCCCC'
       when 'Billedet er muligvis beskyttet af loven om ophavsret'
-        #image.permissions = [{:name=>'public', :access=>'edit', :type=>'group'}]
         image.permissions = [{:name=>'public', :access=>'discover', :type=>'group'},
                              {:name=>'registered', :access=>'edit', :type=>'group'}]
         image.license_title = image.copyright
@@ -56,8 +55,8 @@ class Image < BifrostObject
         image.license_url = 'http://www.kb.dk'
         image.license_description = '??'
     end
-    logger.debug 'Permissions set to: ' + image.permissions.to_s
-    logger.debug "License; title = #{image.license_title}, url = #{image.license_url}, description = #{image.license_description}"
+    #logger.debug 'Permissions set to: ' + image.permissions.to_s
+    #logger.debug "License; title = #{image.license_title}, url = #{image.license_url}, description = #{image.license_description}"
     image.save!
   end
 end

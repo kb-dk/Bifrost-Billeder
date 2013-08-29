@@ -4,8 +4,6 @@ require 'rexml/document'
 class ImagesController < ApplicationController
   include ImagesHelper
 
-  #load_and_authorize_resource
-
   # GET /images
   # GET /images.json
   def index
@@ -35,6 +33,8 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    authorize! :read, params[:id]
+
     @image = Image.find(params[:id])
 
     respond_to do |format|
@@ -62,12 +62,16 @@ class ImagesController < ApplicationController
 
   # GET /images/1/edit
   def edit
+    authorize! :edit, params[:id]
+
     @image = Image.find(params[:id])
   end
 
   # POST /images
   # POST /images.json
   def create
+    authorize! :edit, params[:id]
+
     @image = Image.new(params[:image])
     @image.created_at = DateTime.now
     @image.editor = ">>>READ FROM SESSION<<<"
@@ -85,6 +89,8 @@ class ImagesController < ApplicationController
   # PUT /images/1
   # PUT /images/1.json
   def update
+    authorize! :edit, params[:id]
+
     @image = Image.find(params[:id])
 
     respond_to do |format|
@@ -105,6 +111,7 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
+    authorize! :edit, params[:id]
     @image = Image.find(params[:id])
     @image.destroy
 
@@ -158,8 +165,8 @@ class ImagesController < ApplicationController
     stat_counter = 0
     stat_beginning = Time.now
     if(localpath.blank?)
-      localpath = 'test/fixtures/master_records_test_subset/*.xml'
-      #localpath = 'test/fixtures/masters2/*.xml'
+      #localpath = 'test/fixtures/master_records_test_subset/*.xml'
+      localpath = 'test/fixtures/masters2/*.xml'
     end
     logger.info("LOAD ALL XML FILES FROM SYSTEM path #{localpath} ")
 
