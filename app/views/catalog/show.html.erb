@@ -8,20 +8,19 @@
 <div class="container-fluid" id="document">
   <div id="doc_<%= @document.id.to_s.parameterize %>">
 
-    <p id="landingpage-image" class="row-fluid"><%= if (@document["path_to_image_ssm"].first.to_s.strip.length != 0)
-                            image_tag "http://www.kb.dk/imageService/w1600/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
-                          end
-    %></p>
-
-
     <% # bookmark/folder functions -%>
     <%= render_document_heading(:h1).html_safe %>
 
     <div class="document">
-
-
+      <%= link_to 'show details', send("#{@document[:active_fedora_model_ssi].to_s.downcase}_path", @document[:id]) %>
       <%= render_document_partial @document, :show %>
     </div>
+
+    <p id="landingpage-image" class="row-fluid"><%= if (@document["path_to_image_ssm"].first.to_s.strip.length != 0)
+                                                      image_tag "http://www.kb.dk/imageService/w1600/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
+                                                    end
+    %></p>
+
 
     <%= render 'previous_next_doc' %>
 
