@@ -1,0 +1,1 @@
+APP_CONFIG = YAML.load_file(Rails.root+"config/bifrost.yml")[Rails.env]

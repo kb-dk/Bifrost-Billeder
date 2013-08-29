@@ -1,0 +1,8 @@
+development:
+  admin_pids: ["PID000282354", "PID000433854"]
+
+test:
+  admin_pids: ["krv-pid", "spec-admin-pid"]
+
+production:
+  admin_pids: ["krv-pid"]

@@ -34,6 +34,9 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     authorize! :read, params[:id]
+    puts "params: #{params.inspect.to_s}"
+    puts "user: #{current_user.inspect.to_s}"
+    #puts ""
 
     @image = Image.find(params[:id])
 

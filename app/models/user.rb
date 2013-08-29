@@ -25,9 +25,17 @@ class User < ActiveRecord::Base
     name# + ', ' + pid
   end
 
+  def new_record?
+    pid.nil?
+  end
+
   #environment includes a list of pids that should have admin privileges
   def admin?
-    APP_CONFIG['admin_pids'].include?(pid)
+    if APP_CONFIG['admin_emails']
+      APP_CONFIG['admin_emails'].include?(email)
+    else
+      false
+    end
   end
 
   #anybody that can login, is a depositor. No restrictions
