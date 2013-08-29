@@ -32,11 +32,16 @@
   </p>
 </div>
 
+<% if has_user_authentication_provider? and current_user %>
+
 <div class="container">
+
   <div class="row">
     <h4>Administration</h4>
 
   </div>
+
+
   <div class="row">
     <div class="col-lg-4">
       <div class="well well-large">
@@ -67,5 +72,7 @@
   </div>
 
 </div>
+
+  <% end %>
   <% #Creates a bit space in the page -%>
 
