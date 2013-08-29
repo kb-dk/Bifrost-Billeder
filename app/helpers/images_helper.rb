@@ -28,7 +28,15 @@ module ImagesHelper
         @image.local = element.text.split(',')
       end
       if element.parent.attributes['name'] == 'Categories'
-        @image.category = element.text.split(',')
+        list_of_categories = element.text.split(', ')
+
+        #element.text.split(',').each do |cat|
+        #  list_of_categories.push cat.strip
+
+        #  logger.debug("            #{cat} Kategori #{list_of_categories}")
+        #end
+
+        @image.category = list_of_categories.uniq
       end
       if element.parent.attributes['name'] == 'Record Name'
         @image.fileidentifier = element.text

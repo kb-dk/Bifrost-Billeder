@@ -11,7 +11,7 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     t.genre(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>'genre', :label=>'Genre')
     t.copyright(:type => :string, :index_as => [:stored_searchable, :displayable, :sortable, :facetable], :path => 'copyright', :label => 'Copyright')
     #t.category(index_as: [:searchable, :facetable, :displayable])
-    t.date_start
+    t.date_start(:type => :string, :index_as=>[:stored_searchable, :displayable, :facetable],:path=>'date_start', :label=>'date_start')
     t.date_end
     t.date_txt(:type => :string, :index_as=>[:stored_searchable, :displayable, :facetable],:path=>'date_txt', :label=>'date_txt')
     t.description(:type => :text, :index_as=>[:stored_searchable, :displayable],:path=>'description', :label=>'Description')

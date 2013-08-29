@@ -119,9 +119,11 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('keywords', :stored_searchable, type: :string), :label => 'Emneord:'
     config.add_show_field solr_name('genre', :stored_searchable, type: :string), :label => 'Genre:'
     config.add_show_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
-    config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'Tidspunkt:'
+    config.add_show_field solr_name('date_txt', :stored_searchable, type: :string), :label => 'Tidspunkt:'
+    config.add_show_field solr_name('date_start', :stored_searchable, type: :string), :label => 'År:'
     config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_show_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
+    config.add_show_field solr_name('opstilling', :stored_searchable, type: :string), :label => 'Opstilling'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
