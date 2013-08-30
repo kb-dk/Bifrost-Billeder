@@ -35,21 +35,20 @@ module ImagesHelper
   def make_hash(root)
     extracted_elements = Hash.new
     root.elements.each('field/value') do |element|
-      if extracted_elements.has_key? element.parent.attributes['name']
-        if extracted_elements[element.parent.attributes['name']].is_a?(Array)
-          value = extracted_elements[element.parent.attributes['name']]
+      key = element.parent.attributes['name']
+      if extracted_elements.has_key? key
+        if extracted_elements[key].is_a?(Array)
+          value = extracted_elements[key]
         else
-          value = [extracted_elements[element.parent.attributes['name']]]
+          value = [extracted_elements[key]]
         end
         value << element.text
       else
         value = element.text
       end
-
-      extracted_elements[element.parent.attributes['name']] = value
+      extracted_elements[key] = value
     end
 
-    #puts "Extracted file : #{extracted_elements.inspect.to_s}"
     extracted_elements
   end
 
