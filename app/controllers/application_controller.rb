@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_locale
-    logger.debug "app_controller set_locale params[:locale]=" + params[:locale] + " I18n.default_locale=" +  I18n.default_locale.to_s rescue nil
+    logger.debug "app_controller set_locale params[:locale]=#{params[:locale]} I18n.default_locale=#{I18n.default_locale.to_s}" rescue nil
     I18n.locale =  params[:locale] || I18n.default_locale
   end
 

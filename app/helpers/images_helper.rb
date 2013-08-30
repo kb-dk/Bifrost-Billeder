@@ -5,119 +5,52 @@ module ImagesHelper
     doc = REXML::Document.new File.new(filename)
     #logger.debug  doc.root.size
     @image = Image.new()
-    list_of_persons = Array.new
-    list_of_keywords = Array.new
 
-    doc.root.elements.each('field/value') do |element|
-      if element.parent.attributes['name'] == 'record_id'
-        @image.record_id = element.text
-      end
-      if element.parent.attributes['name'] == 'Titel'
-        @image.title = element.text
-      end
-      if element.parent.attributes['name'] == 'Ophav'
-        @image.author = element.text
-      end
-      if element.parent.attributes['name'] == 'Opstilling'
-        @image.opstilling = element.text
-      end
-      if element.parent.attributes['name'] == 'Genre'
-        @image.genre  = element.text
-      end
-      if element.parent.attributes['name'] == 'Lokalitet'
-        @image.local = element.text.split(',')
-      end
-      if element.parent.attributes['name'] == 'Categories'
-        list_of_categories = element.text.split(', ')
+    extracted_elements = make_hash(doc.root)
+    @image.record_id = extracted_elements['record_id']
+    @image.title = extracted_elements['Titel']
+    @image.author = extracted_elements['Ophav']
+    @image.opstilling = extracted_elements['Opstilling']
+    @image.genre = extracted_elements['Genre']
+    locals = extracted_elements['Lokalitet'] || ''
+    @image.local = locals.is_a?(Array) ? locals.uniq : locals.split(', ')
+    categories = extracted_elements['Categories'].split(', ')  || ''
+    @image.category = categories.is_a?(Array) ? categories.uniq : categories.split(', ')
+    @image.fileidentifier = extracted_elements['Record Name']
+    @image.imagetype = extracted_elements['Materialebetegnelse']
+    @image.imagetype ||= extracted_elements['Generel materialebetegnelse']
+    @image.date_txt = extracted_elements['Time']
+    @image.date_start = extracted_elements['År']
+    @image.path_to_image = extracted_elements['Asset Reference']
+    @image.description = extracted_elements['Note']
+    @image.keywords = extracted_elements['Emneord']
+    @image.person = extracted_elements['Person']
+    @image.copyright = extracted_elements['Copyright']
 
-        #element.text.split(',').each do |cat|
-        #  list_of_categories.push cat.strip
-
-        #  logger.debug("            #{cat} Kategori #{list_of_categories}")
-        #end
-
-        @image.category = list_of_categories.uniq
-      end
-      if element.parent.attributes['name'] == 'Record Name'
-        @image.fileidentifier = element.text
-      end
-      if element.parent.attributes['name'] == 'Materialebetegnelse'
-        @image.imagetype = element.text
-      end
-      if element.parent.attributes['name'] == 'Generel materialebetegnelse'
-        if @image.imagetype.nil? || @image.imagetype.empty?
-          @image.imagetype = element.text
-        else
-          @image.imagetype << element.text
-        end
-      end
-      if element.parent.attributes['name'] == 'Time'
-        @image.date_txt = element.text
-      end
-
-      if element.parent.attributes['name'] == 'År'
-        @image.date_start = element.text
-      end
-
-      if element.parent.attributes['name'] == 'Asset Reference'
-        @image.path_to_image = element.text
-        # http://www.kb.dk/imageService/w450/online_master_arkiv_11/non-archival/Images/BILLED/2011/apr/DH_kvart/DH008765.jpg
-        #http://www.kb.dk/imageService/w450/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/kendis/ke001513.jpg
-      end
-      if element.parent.attributes['name'] == 'Note'
-        if @image.description.nil? || @image.description.empty?
-          @image.description = element.text
-        else
-          @image.description = @image.description + '.' + element.text
-        end
-      end
-      #if element.parent.attributes['name'] == 'Person'
-      #  if @image.description.nil? || @image.description.empty?
-      #    @image.description = element.text
-      #  else
-      #    @image.description = @image.description + 'Person: ' + element.text
-      #  end
-      #end
-      if element.parent.attributes['name'] == 'Emneord'
-        list_of_keywords.push(element.text)
-      end
-
-
-
-      if element.parent.attributes['name'] == 'Person'
-        logger.debug("PERSON #{element.text}" )
-        if @image.person.nil? || @image.person.empty? || @image.person.length < 1
-          #@image.person = Array.new
-          #arra = ["12", "34"]
-
-          #arra.push(element.text)
-         # @image.person.push(element.text)
-          @image.person = element.text
-          list_of_persons.push(element.text)
-
-
-        else
-
-          #arra.push(element.text)
-          @image.person = (@image.person + ";" + element.text)
-          list_of_persons.push(element.text)
-          # @image.person.push( element.text)
-
-        end
-      end
-      if element.parent.attributes['name'] == 'Copyright'
-        @image.copyright = element.text
-      end
-    end
-
-    #splitting on , for each person
-    #if !@image.person.nil? && !@image.person.empty? && @image.person.length > 0
-    #  @image.person = @image.person.split(';')
-    #end
-    @image.person = list_of_persons
-    logger.debug ("         list_of_persons: #{list_of_persons}")
-    @image.keywords = list_of_keywords
-    logger.debug ("         list_of_keywords: #{list_of_keywords}")
     @image
   end
+
+  private
+
+  def make_hash(root)
+    extracted_elements = Hash.new
+    root.elements.each('field/value') do |element|
+      if extracted_elements.has_key? element.parent.attributes['name']
+        if extracted_elements[element.parent.attributes['name']].is_a?(Array)
+          value = extracted_elements[element.parent.attributes['name']]
+        else
+          value = [extracted_elements[element.parent.attributes['name']]]
+        end
+        value << element.text
+      else
+        value = element.text
+      end
+
+      extracted_elements[element.parent.attributes['name']] = value
+    end
+
+    #puts "Extracted file : #{extracted_elements.inspect.to_s}"
+    extracted_elements
+  end
+
 end

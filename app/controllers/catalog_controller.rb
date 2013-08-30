@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-        :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim keywords_tesim id',
+        :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim keywords_tesim id copyright_tesim',
         :qt => 'search',
         :rows => 10
     }
@@ -91,6 +91,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
     config.add_index_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_index_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
+    config.add_index_field solr_name('license', :stored_searchable, type: :string), :label => 'License:'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
@@ -177,6 +178,14 @@ class CatalogController < ApplicationController
       field.solr_local_parameters = {
           :qf => '$local_tesim',
           :pf => '$local_tesim'
+      }
+    end
+
+    config.add_search_field('License') do |field|
+      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+      field.solr_local_parameters = {
+          :qf => '$copyright_tesim',
+          :pf => '$copyright_tesim'
       }
     end
 
