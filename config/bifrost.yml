@@ -1,5 +1,5 @@
 development:
-  admin_pids: ["PID000282354", "PID000433854"]
+  admin_pids: ["PID000282354", "PID000433854", "PID000378112"]
 
 test:
   admin_pids: ["krv-pid", "spec-admin-pid"]

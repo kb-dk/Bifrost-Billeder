@@ -37,13 +37,16 @@
     -->
     <span class="Z3988" title="<%= @document.export_as_openurl_ctx_kev(document_partial_name(@document)) %>"></span>
   <% end %>
-  <div class="well">
+  <% if has_user_authentication_provider? and current_user %>
+
+<div class="well">
     <p>Udelukkende for test og udvikling </p>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_image_path(@document.id), :class => 'btn  btn-warning' %>
   <%= link_to 'show details', send("#{@document[:active_fedora_model_ssi].to_s.downcase}_path", @document[:id]), :class => 'btn btn-success' %>
   </div>
 </div>
+  <% end %>
 
 <!--div id="sidebar" class="span3">
    <% #render_document_sidebar_partial  %>
