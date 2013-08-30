@@ -21,7 +21,7 @@ Feature: Search for image metadata
     | Alt                 | Carreby     |31      |
     | Titel               | ABC Hansen  |1       |
     | Forfatter           | Carreby     |31      |
-    | Område              | Amager      |2       |
+    | Område              | Amager      |5       |
 
   Scenario: Successful sorting of results by Titel
     Given I am at the home page for Bifrost-Billeder
