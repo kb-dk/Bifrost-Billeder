@@ -67,6 +67,7 @@ class CatalogController < ApplicationController
 
 
     config.add_facet_field solr_name('genre', :facetable), :label => 'Genre:', :limit => 11
+    config.add_facet_field solr_name('copyright', :facetable), :label => 'License', :limit => 5
 
     #config.add_facet_field solr_name('category_tesim', :facetable, :show=>true), :label => 'Category'
 
@@ -91,7 +92,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name('local', :stored_searchable, type: :string), :label => 'Område:'
     config.add_index_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_index_field solr_name('imagetype', :stored_searchable, type: :string), :label => 'Type:'
-    config.add_index_field solr_name('license', :stored_searchable, type: :string), :label => 'License:'
+    config.add_index_field solr_name('copyright', :stored_searchable, type: :string), :label => 'License:'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
@@ -125,6 +126,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('description', :stored_searchable, type: :string), :label => 'Beskrivelse:'
     config.add_show_field solr_name('fileidentifier', :stored_searchable, type: :string), :label => 'Fileidentifier'
     config.add_show_field solr_name('opstilling', :stored_searchable, type: :string), :label => 'Opstilling'
+    config.add_show_field solr_name('copyright', :stored_searchable, type: :string), :label => 'License:'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -159,33 +161,42 @@ class CatalogController < ApplicationController
       # syntax, as eg {! qf=$title_qf }. This is neccesary to use
       # Solr parameter de-referencing like $title_qf.
       # See: http://wiki.apache.org/solr/LocalParams
+      solr_name = Solrizer.solr_name("title", :stored_searchable, type: :string)
       field.solr_local_parameters = {
-          :qf => '$title_ssm',
-          :pf => '$title_ssm'
+          :qf => solr_name,
+          :pf => solr_name
       }
     end
 
     config.add_search_field('Forfatter') do |field|
-      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+      solr_name = Solrizer.solr_name("author", :stored_searchable, type: :string)
       field.solr_local_parameters = {
-          :qf => '$author_ssm',
-          :pf => '$author_ssm'
+          :qf => solr_name,
+          :pf => solr_name
       }
     end
 
     config.add_search_field('Område') do |field|
-      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+      solr_name = Solrizer.solr_name("local", :stored_searchable, type: :string)
       field.solr_local_parameters = {
-          :qf => '$local_tesim',
-          :pf => '$local_tesim'
+          :qf => solr_name,
+          :pf => solr_name
+      }
+    end
+
+    config.add_search_field('Kategori') do |field|
+      solr_name = Solrizer.solr_name("category", :stored_searchable, type: :string)
+      field.solr_local_parameters = {
+          :qf => solr_name,
+          :pf => solr_name
       }
     end
 
     config.add_search_field('License') do |field|
-      #field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+      solr_name = Solrizer.solr_name("copyright", :stored_searchable, type: :string)
       field.solr_local_parameters = {
-          :qf => '$copyright_tesim',
-          :pf => '$copyright_tesim'
+          :qf => solr_name,
+          :pf => solr_name
       }
     end
 
