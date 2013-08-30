@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Image < BifrostObject
   include Hydra::ModelMixins::RightsMetadata
+  #include Solr::Indexable
 
   has_metadata 'rightsMetadata', type:  Hydra::Datastream::RightsMetadata
 
@@ -10,7 +11,7 @@ class Image < BifrostObject
 
   delegate_to 'descMetadata', [:title, :author, :person, :category, :genre, :date_end, :date_start, :date_txt, :description, :lcsh, :fileidentifier, :geo_lat, :geo_lng, :keywords, :imagetype, :local, :path_to_image, :opstilling, :copyright], :unique => true
 
-  delegate :license_title, :to=>'rightsMetadata', :at=>[:license, :title], :unique=>true
+  delegate :license_title, :to=>'rightsMetadata', :at=>[:license, :title], :index_as=>[:stored_searchable, :displayable, :sortable], :unique=>true
   delegate :license_description, :to=>'rightsMetadata', :at=>[:license, :description], :unique=>true
   delegate :license_url, :to=>'rightsMetadata', :at=>[:license, :url], :unique=>true
 
