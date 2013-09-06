@@ -20,7 +20,7 @@ Feature: Search for image metadata
     | metadata_field_name | search_term | number |
     | Alt                 | Carreby     |31      |
     | Titel               | ABC Hansen  |1       |
-    | Forfatter           | Carreby     |31      |
+    | Forfatter           | Most        |2       |
     | Område              | Amager      |5       |
 
   Scenario: Successful sorting of results by Titel
