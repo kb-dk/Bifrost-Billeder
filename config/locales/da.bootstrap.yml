@@ -5,13 +5,15 @@ en:
   helpers:
     actions: "Handlinger"
     links:
-      back: "Back"
-      cancel: "Cancel"
-      confirm: "Are you sure?"
-      destroy: "Delete"
-      new: "New"
+      back: "Tilbage"
+      cancel: "Annuller"
+      confirm: "Er du sikker?"
+      destroy: "Slet"
+      new: "Ny"
     titles:
-      edit: "Edit"
-      save: "Save"
-      new: "New"
-      delete: "Delete"
+      edit: "Ændrer"
+      save: "Gem"
+      new: "Ny"
+      delete: "Slet"
+      edit_rights: "Ændrer rettigheder"
+

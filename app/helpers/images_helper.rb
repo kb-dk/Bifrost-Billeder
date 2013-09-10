@@ -1,6 +1,8 @@
 # encoding: utf-8
 module ImagesHelper
+  include RightsHelper
 
+  # Method for creating a file from an XML file in the Cumulus export format.
   def create_image(filename)
     doc = REXML::Document.new File.new(filename)
     #logger.debug  doc.root.size
@@ -31,7 +33,9 @@ module ImagesHelper
   end
 
   private
-
+  # Extracts the field/value elements into a Hash.
+  # Each
+  # @param root The root of the 'raw.xml' document where the field/value elements should be extracted into a hash.
   def make_hash(root)
     extracted_elements = Hash.new
     root.elements.each('field/value') do |element|

@@ -1,0 +1,19 @@
+<!--
+ Expects to have a @right which is to be portrayed in a table, with @rights.name,
+-->
+<td>
+  <%= f.label :name, @p[:name].to_s %>
+  <%= f.hidden_field :name, :value => @p[:name] %>
+</td>
+<td>
+  <%= f.label :type, @p[:type].to_s %>
+  <%= f.hidden_field :type, :value => @p[:type] %>
+</td>
+<td>
+  <%= f.select :access, options_for_select(@access_values, @p[:access].to_s) %>
+</td>
+<%- if @inspection %>
+<td>
+  <%= @p.inspect.to_s %>
+</td>
+<% end %>

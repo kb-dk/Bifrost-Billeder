@@ -6,8 +6,12 @@ SIFDBilleder::Application.routes.draw do
 
   devise_for :users
 
-  resources :images
-
+  resources :images do
+    member do
+      get 'edit_rights'
+      put 'update_rights'
+    end
+  end
 
   #get '/loadalldata', to: 'images#loadallimagesfromfilesystem'
   get '/loadallxmlfiles', to: 'images#loadallxmlfromglobal'
