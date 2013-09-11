@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
 
   #environment includes a list of pids that should have admin privileges
   def admin?
-    if APP_CONFIG['admin_emails']
-      APP_CONFIG['admin_emails'].include?(email)
+    if APP_CONFIG['admin_pids']
+      APP_CONFIG['admin_pids'].include?(pid)
     else
       false
     end

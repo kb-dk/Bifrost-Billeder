@@ -67,7 +67,17 @@ class ImagesController < ApplicationController
   def edit
     authorize! :edit, params[:id]
 
+
     @image = Image.find(params[:id])
+  end
+
+  # GET /images/1/edit_rights
+  def edit_rights
+    authorize! :edit, params[:id]
+
+    @image = Image.find(params[:id])
+    puts "Image: #{@image.inspect.to_s}"
+    @image
   end
 
   # POST /images
@@ -113,6 +123,24 @@ class ImagesController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /images/1
+  # PUT /images 1.json
+  def update_rights
+    authorize! :edit, params[:id]
+
+    @image = Image.find(params[:id])
+
+    respond_to do |format|
+      if set_rigths(params[:rights], @image)
+        format.html { redirect_to @image, notice: 'Rights was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit_rights" }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end

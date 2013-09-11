@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'hydra', '6.0.0'
+gem 'hydra', :require => 'hydra6'
 gem 'bootswatch-rails'
 gem 'omniauth'
 gem 'omniauth-cas'
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-#  gem 'capybara-webkit'
+  gem 'capybara-webkit'
 end
 
 group :development do

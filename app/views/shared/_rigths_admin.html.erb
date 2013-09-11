@@ -1,0 +1,102 @@
+<!--
+ Must be included through rendering of multipart fields.
+ The given object containing the rights metadata must be passed on as @object.
+ The 'fields for' builder must be delivered as a the 'f' parameter.
+-->
+<h3>Default groups:</h3>
+<%- @access_values = ['none', 'discover', 'read', 'edit']-%>
+<%- @type_values = ['group', 'person']-%>
+<%- @inspection = false %>
+<table border="0">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Access</th>
+    <%- if @inspection %>
+      <th>Inspect</th>
+    <%- end %>
+  </tr>
+  <!-- public group -->
+  <%= f.fields_for :public do |f1| %>
+    <%- @object.permissions.each do |p| -%>
+      <%- next unless p[:name] == 'public' -%>
+      <%- @p = p -%>
+      <tr>
+        <div class="rights_registered_group">
+          <%= render 'shared/rights_admin_user_specific', :f => f1 %>
+        </div>
+      </tr>
+    <%- end -%>
+  <% end %>
+  <!-- registered group -->
+  <%= f.fields_for :registered do |f1| %>
+    <%- @object.permissions.each do |p| -%>
+      <%- next unless p[:name] == 'registered' -%>
+      <%- @p = p -%>
+      <tr>
+        <div class="rights_registered_group">
+          <%= render 'shared/rights_admin_user_specific', :f => f1 %>
+        </div>
+      </tr>
+    <%- end -%>
+  <% end %>
+</table>
+
+<br/>
+<h3>Current specific rights:</h3>
+<%- if @object.permissions.length > 2 %>
+  <%# Show the currently defined rigths besides the default groups, and allows changing of these%>
+  <table border="0">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Access</th>
+      <%- if @inspection %>
+          <th>Inspect</th>
+      <%- end %>
+    </tr>
+    <%= f.fields_for :specific, :html=>{:multipart=>true} do |f1| -%>
+      <%- @object.permissions.each do |p| -%>
+        <%= f1.fields_for p[:name].to_s do |f2| -%>
+        <%- next if p[:name] == 'public' || p[:name] == 'registered' -%>
+          <%- @p = p -%>
+          <tr>
+            <div class="rights_registered_group">
+              <%= render 'shared/rights_admin_user_specific', :f => f2 %>
+            </div>
+          </tr>
+        <%- end -%>
+      <%- end -%>
+    <%- end %>
+  </table>
+<%- else -%>
+  <p>No specific rights, besides the default groups.</p>
+<%- end -%>
+
+<h3>New rights:</h3>
+<%# Allows adding new person or group rights %>
+<div class="rights_new">
+  <table border="0">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Access</th>
+    </tr>
+    <%= f.fields_for :new do |f1| -%>
+      <tr>
+        <div class="rights_registered_group">
+          <td>
+            <%= f1.text_field :name, :class => 'text_field' %>
+          </td>
+          <td>
+            <%= f1.select :type, options_for_select(@type_values, 'person') %>
+          </td>
+          <td>
+            <%= f1.select :access, options_for_select(@access_values, 'discover') %>
+          </td>
+        </div>
+       </tr>
+    <%- end %>
+  </table>
+  <%#= @object.permissions.inspect.to_s %>
+</div>

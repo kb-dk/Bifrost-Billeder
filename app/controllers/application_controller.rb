@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user]
-      puts "User info: #{session[:user]}"
+      #logger.debug "User info: #{session[:user]}"
       user = User.new
       user.pid = session[:user].extra.alephPID
       #    user.name = session[:user].extra.attributes[0]['gn'] + ' ' + session[:user].extra.attributes[0]['sn']
