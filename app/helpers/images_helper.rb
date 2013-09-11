@@ -23,9 +23,12 @@ module ImagesHelper
     @image.date_start = extracted_elements['År']
     @image.path_to_image = extracted_elements['Asset Reference']
     @image.description = extracted_elements['Note']
-    @image.keywords = extracted_elements['Emneord']
+    @image.keywords = extracted_elements['Keywords']
     @image.person = extracted_elements['Person']
     @image.copyright = extracted_elements['Copyright']
+    @image.uuid_cumulus = extracted_elements['UUID']
+    @image.dimensions = extracted_elements['Original Size']
+
 
     @image
   end

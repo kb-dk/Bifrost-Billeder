@@ -2,6 +2,6 @@ module BlacklightHelper
   include Blacklight::BlacklightHelperBehavior
 
   def application_name
-    "KB-Billeder"
+    "Bifrost - Billeder"
   end
 end

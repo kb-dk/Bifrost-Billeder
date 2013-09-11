@@ -20,7 +20,7 @@ da:
       next: 'Næste &raquo;'
 
   blacklight:
-    application_name: 'KB-Billeder'
+    application_name: 'Bifrost - Billeder'
 
     header_links:
       login: 'Log ind'
