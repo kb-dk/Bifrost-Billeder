@@ -60,16 +60,18 @@
   <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
 
   <dd>
+    <ul>
     <% if @image.person.kind_of?(Array) %>
         <% @image.person.each do |per| %>
 
-            <p class="label label-success"><%= per %></p>
+            <li><%= per %></li>
 
         <% end %>
     <% else %>
-        <%= @image.person %>
+        <li><%= @image.person %>  </li>
 
     <% end %>
+    </ul>
   </dd>
 
   <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
@@ -113,7 +115,7 @@
   <dd><%= @image.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:path_to_image) %>:</strong></dt>
   <dd><%= if @image.path_to_image.to_s.strip.length != 0
-            image_tag ("http://www.kb.dk/imageService/w850/"+@image.path_to_image.sub('.tif', ".jpg"))
+            image_tag ("http://www.kb.dk/imageService/w850/"+@image.path_to_image[0].sub('.tif', ".jpg"))
           end
       %></dd>
 

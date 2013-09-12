@@ -9,7 +9,8 @@ class Image < BifrostObject
 
   attr_accessor  :record_id, :title, :author, :person, :category,:genre, :date_end, :date_start, :date_txt, :description,:lcsh, :fileidentifier, :geo_lat, :geo_lng, :imagetype, :local, :path_to_image, :opstilling, :copyright, :license_title, :license_description, :license_url
 
-  delegate_to 'descMetadata', [:title, :author, :person, :category, :genre, :date_end, :date_start, :date_txt, :description, :lcsh, :fileidentifier, :geo_lat, :geo_lng, :keywords, :imagetype, :local, :path_to_image, :opstilling, :copyright, :cumulusuuid, :dimensions], :unique => true
+  delegate_to 'descMetadata', [:title, :date_end, :date_start, :date_txt, :description, :geo_lat, :geo_lng, :opstilling, :copyright, :cumulusuuid, :dimensions], :unique=>true
+  delegate_to 'descMetadata', [:author, :person, :category, :genre, :lcsh, :fileidentifier,  :keywords, :imagetype, :local, :path_to_image]
 
   delegate :license_title, :to=>'rightsMetadata', :at=>[:license, :title], :index_as=>[:stored_searchable, :displayable, :sortable], :unique=>true
   delegate :license_description, :to=>'rightsMetadata', :at=>[:license, :description], :unique=>true
