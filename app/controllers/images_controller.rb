@@ -93,7 +93,11 @@ class ImagesController < ApplicationController
 
     @image = Image.new(params[:image])
     @image.created_at = DateTime.now
-    @image.editor = ">>>READ FROM SESSION<<<"
+    if !current_user.pid.nil? || current_user.pid.empty?  || current_user.pid.blank?
+       @image.editor = current_user.pid
+    else
+      @image.editor = "Automatic"
+    end
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -115,8 +119,11 @@ class ImagesController < ApplicationController
     respond_to do |format|
 
       @image.update_at = DateTime.now
-      @image.editor = ">>>READ FROM SESSION<<<"
-
+      if !current_user.pid.nil? || current_user.pid.empty?  || current_user.pid.blank?
+        @image.editor = current_user.pid
+      else
+        @image.editor = "Automatic"
+      end
       if @image.update_attributes(params[:image])
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { head :no_content }

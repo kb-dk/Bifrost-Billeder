@@ -13,17 +13,28 @@
         });
     });
 
-    jQuery(document).ready(function() {
-        var map = new mxn.Mapstraction('map', 'openlayers');
-        //var lat = <%= defined?(true) ? @image.geo_lat : 55.673457 %>
-        var lat = <%= @image.geo_lat  || 55.673457 %>
-        //var lon = <%= defined?(true) ? @image.geo_lng : 12.58272 %>
-        var lon = <%= @image.geo_lng  || 12.58272 %>
-        //55.673457,12.58272
 
+    jQuery(document).ready(function() {
+
+        var map = new mxn.Mapstraction('map', 'openlayers');
+
+
+        //var lat = <%= defined?(true) ? @image.geo_lat : 55.673457 %>
+        var lat = <%= @image.geo_lat  || 55.673457 %>  ;
+        //var lon = <%= defined?(true) ? @image.geo_lng : 12.58272 %>
+        var lon = <%= @image.geo_lng  || 12.58272 %>  ;
+        //55.673457,12.58272
+        var text = '<%= @image.title   %>';
+
+
+        marker = new mxn.Marker(new mxn.LatLonPoint(lat, lon));
+        marker.addData({infoBubble : text, label : "Label", draggable : true,  marker : 4, icon: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Pink.png"});
+       // marker.setDraggable('TRUE');
+        map.addMarker(marker);
         var latlon = new mxn.LatLonPoint(lat, lon);
 
         map.setCenterAndZoom(latlon, 6);
+
         console.log("action DR - Lat: " + lat + " lng: " + lon);
     });
 </script>

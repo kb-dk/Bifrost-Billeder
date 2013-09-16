@@ -13,13 +13,30 @@
     </div>
   </div>
 
-
     <div class="control-group">
-      <%= f.label :person, :class => 'control-label' %>
+
+    <%= f.label :person, "Personer" %>
       <div class="controls">
-        <%= f.text_field :person, :class => 'text_field' %>
-      </div>
+    <% if @image.person.empty? %>
+          <div class="field">
+            <%= text_field_tag "image[person][]", nil %>
+          </div>
+    <% else %>
+
+            <% @image.person.each do |enPerson| %>
+            <div class="field">
+                <%= text_field_tag "image[person][]", enPerson %>
+            </div>
+            <% end %>
+
+
+
+    <% end %>
+        </div>
     </div>
+
+
+
 
 
 

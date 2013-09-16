@@ -60,7 +60,7 @@ class CatalogController < ApplicationController
 
     #config.add_facet_field solr_name('author_tesim', :facetable, :show=>true), :label => 'Author'
     config.add_facet_field solr_name('category', :facetable), :label => 'Kategori:', :limit => 11
-    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type', :limit => 11
+    config.add_facet_field solr_name('imagetype', :facetable), :label => 'Type:', :limit => 11
     config.add_facet_field solr_name('local', :facetable), :label => 'Område:', :limit => 11
     config.add_facet_field solr_name('keywords', :facetable), :label => 'Emneord:', :limit => 17
     config.add_facet_field solr_name('date_start', :facetable), :label => 'År:', :limit => 17

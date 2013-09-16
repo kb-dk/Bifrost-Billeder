@@ -18,9 +18,11 @@ class CumulusMetaDatastream < ActiveFedora::OmDatastream
     t.geo_lng
     t.keywords(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>{:attribute=>'keywords'}, :label=>'keywords')
     t.imagetype(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>{:attribute=>'imagetype'}, :label=>'Imagetype')
+    t.dimensions(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable, :facetable],:path=>{:attribute=>'dimensions'}, :label=>'dimensions')
     t.local(:type => :string, :index_as=>[:stored_searchable, :displayable, :sortable,  :facetable],:path=>'local', :label=>'Lokal')
     t.path_to_image(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'pathtoimage', :label=>'pathtoimage')
     t.opstilling(:type => :string, :index_as=>[:stored_searchable, :displayable],:path=>'opstilling', :label=>'opstilling')
+    t.cumulusuuid(:type=>:string, :index_as=> :stored_searchable)
   end
 
   def self.xml_template
