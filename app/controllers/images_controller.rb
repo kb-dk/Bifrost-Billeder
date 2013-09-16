@@ -35,10 +35,16 @@ class ImagesController < ApplicationController
   def show
     authorize! :read, params[:id]
     puts "params: #{params.inspect.to_s}"
-    puts "user: #{current_user.inspect.to_s}"
-    #puts ""
 
     @image = Image.find(params[:id])
+    unless params[:descVersionID].blank?
+      @image.descMetadata.versions.each do |dm|
+        if dm.dsVersionID == params[:descVersionID]
+          @desc_metadata = dm
+        end
+      end
+    end
+    @desc_metadata = @image.descMetadata.versions.first unless @desc_metadata
 
     respond_to do |format|
       logger.info "FORMAT: #{format.to_s}"

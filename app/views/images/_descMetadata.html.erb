@@ -1,0 +1,57 @@
+<dt><strong><%= @model_class.human_attribute_name(:title) %>:</strong></dt>
+<dd><%= @desc_metadata.title.first.blank? ? 'N/A' : @desc_metadata.title.first %></dd>
+
+<dt><strong><%= @model_class.human_attribute_name(:author) %>:</strong></dt>
+<dd><%= @desc_metadata.author.first.blank? ? 'N/A' : @desc_metadata.author.first %></dd>
+
+<dt><strong><%= @model_class.human_attribute_name(:local) %>:</strong></dt>
+<dd><%= @desc_metadata.local.first.blank? ? 'N/A' : @desc_metadata.local.first %></dd>
+<dt><strong><%= @model_class.human_attribute_name(:geo_lat) %>:</strong></dt>
+<dd><%= @desc_metadata.geo_lat.first.blank? ? 'N/A' : @desc_metadata.geo_lat.first %></dd>
+<dt><strong><%= @model_class.human_attribute_name(:geo_lng) %>:</strong></dt>
+<dd><%= @desc_metadata.geo_lng.first.blank? ? 'N/A' : @desc_metadata.geo_lng.first %></dd>
+
+<% if @desc_metadata.person.empty? %>
+    <dt><strong><%= @model_class.human_attribute_name(:person) %>:</strong></dt>
+    <dd><%= 'N/A' %></dd>
+<% else %>
+  <% @desc_metadata.person.each do |per| %>
+    <dt><strong><%= @model_class.human_attribute_name(:person) %>:</strong></dt>
+    <dd><%= per %></dd>
+  <% end %>
+<% end %>
+
+<dt><strong><%= @model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
+<dd><%= @desc_metadata.fileidentifier.first.blank? ? 'N/A' : @desc_metadata.fileidentifier.first %></dd>
+
+<% if @desc_metadata.category.empty? %>
+    <dt><strong><%= @model_class.human_attribute_name(:category) %>:</strong></dt>
+    <dd><%= 'N/A' %></dd>
+<% else %>
+    <% @desc_metadata.category.each do |cat| %>
+        <dt><strong><%= @model_class.human_attribute_name(:category) %>:</strong></dt>
+        <dd><%= cat %></dd>
+    <% end %>
+<% end %>
+
+<% if @desc_metadata.keywords.empty? %>
+    <dt><strong><%= @model_class.human_attribute_name(:keywords) %>:</strong></dt>
+    <dd><%= 'N/A' %></dd>
+<% else %>
+    <% @desc_metadata.keywords.each do |key| %>
+        <dt><strong><%= @model_class.human_attribute_name(:keywords) %>:</strong></dt>
+        <dd><%= key %></dd>
+    <% end %>
+<% end %>
+
+<dt><strong><%= @model_class.human_attribute_name(:date_start) %>:</strong></dt>
+<dd><%= @desc_metadata.date_start.first.blank? ? 'N/A' : @desc_metadata.date_start.first %></dd>
+<dt><strong><%= @model_class.human_attribute_name(:date_txt) %>:</strong></dt>
+<dd><%= @desc_metadata.date_txt.first.blank? ? 'N/A' : @desc_metadata.date_txt.first %></dd>
+<dt><strong><%= @model_class.human_attribute_name(:description) %>:</strong></dt>
+<dd><%= @desc_metadata.description.first.blank? ? 'N/A' : @desc_metadata.description.first %></dd>
+<dt><strong><%= @model_class.human_attribute_name(:path_to_image) %>:</strong></dt>
+<dd><%= @desc_metadata.path_to_image.first.blank? ? 'No image' : image_tag("http://www.kb.dk/imageService/w850/"+@desc_metadata.path_to_image.first.sub('.tif', ".jpg")) %></dd>
+
+<dt>Geo</dt>
+<dd> <div id="map"></div></dd>
