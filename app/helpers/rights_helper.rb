@@ -1,7 +1,12 @@
 # encoding: utf-8
 module RightsHelper
-  # Set the rights for an object.
-  def set_rigths(rights, object)
+  # set both permissions and embargo
+  def set_rights(rights, object)
+    set_permissions(rights[:rights], object) && set_embargo(rights[:embargo], object)
+  end
+
+  # Set the permission rights for an object.
+  def set_permissions(rights, object)
     logger.debug "Setting new rights #{rights.inspect.to_s}"
     res = Array.new
     remove = Array.new
@@ -33,13 +38,15 @@ module RightsHelper
       end
     end
 
-    # Handling of new user-rights, if any
+    # Handling of new user-rights, if any. Verify, that it does not already exist.
     unless rights[:new][:name].blank? || rights[:new][:access] == 'none'
-      exists = false
       res.each do |p|
-        exists = true if p[:name] == rights[:new][:name]
+        if p[:name] == rights[:new][:name]
+          object.errors.add(:new_permission, "#{rights[:new][:name]} already exists")
+          return false
+        end
       end
-      res << rights[:new] unless exists
+      res << rights[:new]
     end
 
     # Updating with the new/changed permissions
@@ -58,5 +65,16 @@ module RightsHelper
     end
 
     object.save
+  end
+
+  # Set the embargo rights for an object.
+  def set_embargo(rights, object)
+    unless rights.blank? || rights[:embargo_date].blank?
+      object.rightsMetadata.embargo_release_date = DateTime.parse rights[:embargo_date]
+      object.save
+    end
+  rescue => e
+    object.errors.add(:embargo, "Unable to parse embargo date: '#{e.inspect.to_s}' -> required format #{DateTime.now.to_s}")
+    false
   end
 end

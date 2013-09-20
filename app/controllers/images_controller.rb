@@ -142,7 +142,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     respond_to do |format|
-      if set_rigths(params[:rights], @image)
+      if set_rights(params, @image)
         format.html { redirect_to @image, notice: 'Rights was successfully updated.' }
         format.json { head :no_content }
       else

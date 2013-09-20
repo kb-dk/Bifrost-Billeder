@@ -16,13 +16,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :pid, :gn, :sn
   attr_accessor :gn, :sn, :pid, :name
 
-  ROLES = %w[admin depositor guest]
-
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
   # the account. 
   def to_s
-    name# + ', ' + pid
+    name
   end
 
   def new_record?
@@ -36,10 +34,5 @@ class User < ActiveRecord::Base
     else
       false
     end
-  end
-
-  #anybody that can login, is a depositor. No restrictions
-  def depositor?
-    pid != nil
   end
 end

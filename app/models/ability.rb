@@ -9,7 +9,7 @@ class Ability
     @user = user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
-    elsif user.depositor?
+    elsif user.new_record?
       can :read, :all
     else
       can :discover, :all
