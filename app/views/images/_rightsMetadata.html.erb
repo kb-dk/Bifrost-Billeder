@@ -16,4 +16,11 @@
 <% else %>
     <dd>ingen licens defineret&nbsp;</dd>
 <% end %>
-
+<dt><strong>Embargo dato:</strong></dt>
+<% if @image.rightsMetadata.under_embargo? %>
+    <dd><%= raw @image.embargo_date %></dd>
+<% elsif !@image.embargo_date.blank? %>
+    <dd><%= raw @image.embargo_date %> (overskredet)</dd>
+<% else %>
+    <dd>Ingen embargo d&nbsp;</dd>
+<% end %>

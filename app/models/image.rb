@@ -15,6 +15,10 @@ class Image < BifrostObject
   delegate :license_description, :to=>'rightsMetadata', :at=>[:license, :description], :unique=>true
   delegate :license_url, :to=>'rightsMetadata', :at=>[:license, :url], :unique=>true
 
+  def embargo_date
+    rightsMetadata.embargo_release_date
+  end
+
   after_save :ensure_rights
 
   private
