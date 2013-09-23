@@ -1,5 +1,6 @@
 Bifrost-Billeder
 ================
+[![Build Status](https://travis-ci.org/Det-Kongelige-Bibliotek/Bifrost-Billeder.png?branch=master)](https://travis-ci.org/Det-Kongelige-Bibliotek/Bifrost-Billeder)
 
 Bifrost-Billeder
 
