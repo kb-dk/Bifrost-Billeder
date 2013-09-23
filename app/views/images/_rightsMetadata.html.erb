@@ -18,9 +18,9 @@
 <% end %>
 <dt><strong>Embargo dato:</strong></dt>
 <% if @image.rightsMetadata.under_embargo? %>
-    <dd><%= raw @image.embargo_date %></dd>
-<% elsif !@image.embargo_date.blank? %>
-    <dd><%= raw @image.embargo_date %> (overskredet)</dd>
+    <dd><%= raw @image.rightsMetadata.embargo_release_date %></dd>
+<% elsif !@image.rightsMetadata.embargo_release_date.blank? %>
+    <dd><%= raw @image.rightsMetadata.embargo_release_date %> (overskredet)</dd>
 <% else %>
-    <dd>Ingen embargo d&nbsp;</dd>
+    <dd>Ingen embargo dato.&nbsp;</dd>
 <% end %>

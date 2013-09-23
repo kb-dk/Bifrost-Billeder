@@ -143,7 +143,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if set_rights(params, @image)
-        format.html { redirect_to @image, notice: 'Rights was successfully updated.' }
+        format.html { redirect_to @image, notice: 'Rights metadata was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit_rights" }

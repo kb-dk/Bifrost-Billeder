@@ -50,14 +50,14 @@ module RightsHelper
     end
 
     # Updating with the new/changed permissions
-    logger.info "Permissions after update = #{res.inspect.to_s}"
+    logger.debug "Permissions after update = #{res.inspect.to_s}"
     object.permissions = res
 
     # Workround for removing the permissions set to access 'none'.
     # First give them edit rights, then remove them.
     # Handling of both users and groups.
     unless remove.empty?
-      logger.info "Permission removed = #{remove.inspect.to_s}"
+      logger.debug "Permission removed = #{remove.inspect.to_s}"
       object.set_discover_groups(remove, [])
       object.set_discover_groups([], remove)
       object.set_discover_users(remove, [])
@@ -69,10 +69,13 @@ module RightsHelper
 
   # Set the embargo rights for an object.
   def set_embargo(rights, object)
+    logger.debug "embargo rights #{rights}"
     unless rights.blank? || rights[:embargo_date].blank?
       object.rightsMetadata.embargo_release_date = DateTime.parse rights[:embargo_date]
-      object.save
+    else
+      object.rightsMetadata.update_values({[:embargo,:machine,:date]=>nil})
     end
+    object.save
   rescue => e
     object.errors.add(:embargo, "Unable to parse embargo date: '#{e.inspect.to_s}' -> required format #{DateTime.now.to_s}")
     false

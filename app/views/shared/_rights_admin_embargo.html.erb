@@ -2,7 +2,7 @@
 <%# Allows adding new person or group rights %>
 <div class="rights_new">
   <p>Embargo dato kan f.eks. skrives i formattet: <%= DateTime.now.to_s %></p>
-  <p>Fjern embargoen ved at sætte en dato tidligere end nu.</p>
+  <p>Fjern embargoen ved at fjerne datoen.</p>
   <%- if @object.rightsMetadata.under_embargo? %>
     <%= f.text_field :embargo_date, :class => 'text_field', :value => @object.rightsMetadata.embargo_release_date %>
   <%- else %>
