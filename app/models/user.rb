@@ -1,7 +1,7 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   # Connects this user object to Hydra behaviors.
   include Hydra::User
-  include CanCan::Ability
 
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
   # the account. 
   def to_s
     name
+  end
+
+  # Defining which variable is the key.
+  def user_key
+    pid
   end
 
   def new_record?

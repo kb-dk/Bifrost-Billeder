@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Image < BifrostObject
   include Hydra::ModelMixins::RightsMetadata
-  #include Solr::Indexable
 
   has_metadata 'rightsMetadata', type:  Hydra::Datastream::RightsMetadata
 

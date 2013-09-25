@@ -1,18 +1,15 @@
+# -*- encoding : utf-8 -*-
 class Ability
-  include CanCan::Ability
   include Hydra::Ability
-  include Hydra::AccessControlsEnforcement
-
+  include Hydra::PolicyAwareAbility
 
   def initialize(user)
     super(user)
     @user = user ||= User.new # guest user (not logged in)
-    if user.admin?
-      can :manage, :all
-    elsif user.new_record?
+    if user.new_record?
       can :read, :all
     else
-      can :discover, :all
+      can :manage, :all
     end
   end
 end

@@ -1,5 +1,5 @@
+# -*- encoding : utf-8 -*-
 require 'rexml/document'
-
 
 class ImagesController < ApplicationController
   include ImagesHelper
@@ -73,7 +73,6 @@ class ImagesController < ApplicationController
   def edit
     authorize! :edit, params[:id]
 
-
     @image = Image.find(params[:id])
   end
 
@@ -82,7 +81,6 @@ class ImagesController < ApplicationController
     authorize! :edit, params[:id]
 
     @image = Image.find(params[:id])
-    puts "Image: #{@image.inspect.to_s}"
     @image
   end
 

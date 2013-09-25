@@ -3,10 +3,12 @@
 <div class="rights_new">
   <p>Embargo dato kan f.eks. skrives i formattet: <%= DateTime.now.to_s %></p>
   <p>Fjern embargoen ved at fjerne datoen.</p>
-  <%- if @object.rightsMetadata.under_embargo? %>
-    <%= f.text_field :embargo_date, :class => 'text_field', :value => @object.rightsMetadata.embargo_release_date %>
+  <%- if @object.rightsMetadata.embargo_release_date.blank? %>
+      <%= f.text_field :embargo_date, :class => 'text_field', :style=>'width: 500px;', :value => '' %>
+  <%- elsif @object.rightsMetadata.under_embargo? %>
+      <%= f.text_field :embargo_date, :class => 'text_field', :style=>'width: 500px;', :value => @object.rightsMetadata.embargo_release_date %>
   <%- else %>
-    <%= f.text_field :embargo_date, :class => 'text_field', :value => '' %>
+    <%= f.text_field :embargo_date, :class => 'text_field', :style=>'width: 500px;', :value => "Embargo dato udløbet (#{@object.rightsMetadata.embargo_release_date})" %>
   <%- end %>
 
   <%#= @object.rightsMetadata.inspect.to_s %>
