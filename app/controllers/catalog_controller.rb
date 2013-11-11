@@ -2,9 +2,10 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-
   include Blacklight::Catalog
   include Hydra::Controller::ControllerBehavior
+  include Hydra::PolicyAwareAccessControlsEnforcement
+
   # These before_filters apply the hydra access controls
   #before_filter :enforce_show_permissions, :only=>:show
   # This applies appropriate access controls to all solr queries

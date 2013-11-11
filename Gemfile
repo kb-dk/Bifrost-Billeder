@@ -18,6 +18,7 @@ gem "bootstrap-sass"
 gem "therubyracer"
 #gem "client_side_validations", "3.2.0"
 gem 'thin'
+gem 'dynamic_form'
 
 
 # Rails uses asset pipeline.  You will need these gems for used your assets in development.
@@ -49,7 +50,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'capybara-webkit'
+  #gem 'capybara-webkit'
 end
 
 group :development do

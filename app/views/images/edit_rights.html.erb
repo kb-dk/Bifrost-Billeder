@@ -4,15 +4,16 @@
 </div>
 
 <%= form_for @image, :html=>{:multipart=>true}, url: {action: 'update_rights'} do |f| %>
-<%#=# f.error_messages :header_message => "Edit book error", :class => "alert alert-error", :header_tag => :h3 %>
+  <%- @object = @image-%>
+  <%= f.error_messages :header_message => "Edit rights error", :class => "alert alert-error", :header_tag => :h3 %>
   <%= fields_for :rights do |builder| %>
-    <%- @object = @image-%>
-    <%= render 'shared/rigths_admin', :f => builder %>
+    <%= render 'shared/rights_admin', :f => builder %>
+  <% end %>
+  <%= fields_for :embargo do |builder| %>
+    <%= render 'shared/rights_admin_embargo', :f => builder %>
   <% end %>
   <br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>
-<%#= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                images_path, :class => 'btn' %>
 <% end %>
 
 

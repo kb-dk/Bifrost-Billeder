@@ -11,6 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+// Set link color
+$linkColor: #007FFF !default;
+
 @import "bootswatch/cosmo/variables";
 @import "bootstrap";
 @import "bootstrap-responsive";

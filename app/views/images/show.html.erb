@@ -38,108 +38,14 @@
         console.log("action DR - Lat: " + lat + " lng: " + lon);
     });
 </script>
-<%- model_class = Image -%>
+<%- @model_class = Image -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => @model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @image.title %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
-  <dd><%= @image.author %></dd>
-
-
-  <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
-  <dd><%= @image.local %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:geo_lat) %>:</strong></dt>
-  <dd><%= @image.geo_lat %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:geo_lng) %>:</strong></dt>
-  <dd><%= @image.geo_lng %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
-
-  <dd>
-    <ul>
-    <% if @image.person.kind_of?(Array) %>
-        <% @image.person.each do |per| %>
-
-            <li><%= per %></li>
-
-        <% end %>
-    <% else %>
-        <li><%= @image.person %>  </li>
-
-    <% end %>
-    </ul>
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
-  <dd><%= @image.fileidentifier %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-
-  <dd>
-    <% if @image.category.kind_of?(Array) %>
-        <% @image.category.each do |cat| %>
-
-            <p class="label label-info"><%= cat %></p>
-
-        <% end %>
-    <% else %>
-        <%= @image.category %>
-
-    <% end %>
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
-
-  <dd>
-    <% if @image.keywords.kind_of?(Array) %>
-        <% @image.keywords.each do |keyword| %>
-
-            <p class="label label-info"><%= keyword %></p>
-
-        <% end %>
-    <% else %>
-        <%= @image.keywords %>
-
-    <% end %>
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
-  <dd><%= @image.date_start %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date_txt) %>:</strong></dt>
-  <dd><%= @image.date_txt %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @image.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:path_to_image) %>:</strong></dt>
-  <dd><%= if @image.path_to_image.to_s.strip.length != 0
-            image_tag ("http://www.kb.dk/imageService/w850/"+@image.path_to_image[0].sub('.tif', ".jpg"))
-          end
-      %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:license_title) %>:</strong></dt>
-  <% if @image.license_title %>
-      <dd><%= @image.license_title %></dd>
-  <% else %>
-      <dd>ingen licens defineret&nbsp;</dd>
-  <% end %>
-  <dt><strong><%= model_class.human_attribute_name(:license_url) %>:</strong></dt>
-  <% if @image.license_url %>
-      <dd><%= @image.license_url %></dd>
-  <% else %>
-      <dd>ingen licens defineret&nbsp;</dd>
-  <% end %>
-  <dt><strong><%= model_class.human_attribute_name(:license_description) %>:</strong></dt>
-  <% if @image.license_description %>
-      <dd><%= raw @image.license_description.html_safe %></dd>
-  <% else %>
-      <dd>ingen licens defineret&nbsp;</dd>
-  <% end %>
-
-  <dt>Geo</dt>
-  <dd> <div id="map"></div></dd>
+  <%= render 'descMetadata' %>
+  <%= render 'rightsMetadata' %>
 </dl>
 
   <h3 id="historik">Historik og Tidligere versioner</h3>
@@ -156,78 +62,9 @@
 </dl>
 
   <% @image.descMetadata.versions.each do |image| %>
-      <h4><%= image.title.first %> - <%= image.asOfDateTime_was %></h4>
-
-      <div class="hero-unit">
-        <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-        <dd><%= image.title.first %></dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
-        <dd><%= image.author.first %></dd>
-
-
-        <dt><strong><%= model_class.human_attribute_name(:local) %>:</strong></dt>
-        <dd><%=  image.local %></dd>
-        <dt><strong><%= model_class.human_attribute_name(:fileidentifier) %>:</strong></dt>
-        <dd><%= image.fileidentifier.first %></dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
-
-        <dd>
-          <% image.person.each do |per| %>
-
-              <!--p class="label label-info">    </p-->
-              <p><%= per %></p>
-
-          <% end %>
-        </dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-
-        <dd>
-        <% image.category.each do |cat| %>
-
-              <!--p class="label label-info">    </p-->
-               <p><%= cat %></p>
-
-        <% end %>
-        </dd>
-
-
-        <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
-
-        <dd>
-          <% image.keywords.each do |keyword| %>
-
-              <!--p class="label label-info">    </p-->
-              <p><%= keyword %></p>
-
-          <% end %>
-        </dd>
-        <dt><strong><%= model_class.human_attribute_name(:date_start) %>:</strong></dt>
-        <dd><%= image.date_start.first %></dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:date_end) %>:</strong></dt>
-        <dd><%= image.date_end.first %></dd>
-
-
-        <dt><strong><%= model_class.human_attribute_name(:date_txt) %>:</strong></dt>
-        <dd><%= image.date_txt.first %></dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-        <dd><%= image.description.first %></dd>
-
-        <dt><strong><%= model_class.human_attribute_name(:opstilling) %>:</strong></dt>
-        <dd><%= image.opstilling.first %></dd>
-
-        <dt>Geo</dt>
-        <dd></dd>
-        <dt><strong><%= model_class.human_attribute_name(:lcsh) %>:</strong></dt>
-        <dd><small><a href="http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %>">http://id.loc.gov/authorities/subjects/<%= image.lcsh.first %></a></small></dd>
-  </div>
-
-
-
+    <div class="hero-unit">
+      <%= link_to "#{image.title.first} - #{image.asOfDateTime_was} (#{image.dsVersionID})", request.parameters.merge({:descVersionID => image.dsVersionID}) %>
+    </div>
   <% end %>
 
 

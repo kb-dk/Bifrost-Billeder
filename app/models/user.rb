@@ -1,7 +1,7 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   # Connects this user object to Hydra behaviors.
   include Hydra::User
-  include CanCan::Ability
 
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
@@ -16,13 +16,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :pid, :gn, :sn
   attr_accessor :gn, :sn, :pid, :name
 
-  ROLES = %w[admin depositor guest]
-
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
   # the account. 
   def to_s
-    name# + ', ' + pid
+    name
+  end
+
+  # Defining which variable is the key.
+  def user_key
+    pid
   end
 
   def new_record?
@@ -36,10 +39,5 @@ class User < ActiveRecord::Base
     else
       false
     end
-  end
-
-  #anybody that can login, is a depositor. No restrictions
-  def depositor?
-    pid != nil
   end
 end

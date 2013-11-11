@@ -1,5 +1,5 @@
+# -*- encoding : utf-8 -*-
 require 'rexml/document'
-
 
 class ImagesController < ApplicationController
   include ImagesHelper
@@ -35,10 +35,16 @@ class ImagesController < ApplicationController
   def show
     authorize! :read, params[:id]
     puts "params: #{params.inspect.to_s}"
-    puts "user: #{current_user.inspect.to_s}"
-    #puts ""
 
     @image = Image.find(params[:id])
+    unless params[:descVersionID].blank?
+      @image.descMetadata.versions.each do |dm|
+        if dm.dsVersionID == params[:descVersionID]
+          @desc_metadata = dm
+        end
+      end
+    end
+    @desc_metadata = @image.descMetadata.versions.first unless @desc_metadata
 
     respond_to do |format|
       logger.info "FORMAT: #{format.to_s}"
@@ -67,7 +73,6 @@ class ImagesController < ApplicationController
   def edit
     authorize! :edit, params[:id]
 
-
     @image = Image.find(params[:id])
   end
 
@@ -76,7 +81,6 @@ class ImagesController < ApplicationController
     authorize! :edit, params[:id]
 
     @image = Image.find(params[:id])
-    puts "Image: #{@image.inspect.to_s}"
     @image
   end
 
@@ -136,8 +140,8 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     respond_to do |format|
-      if set_rigths(params[:rights], @image)
-        format.html { redirect_to @image, notice: 'Rights was successfully updated.' }
+      if set_rights(params, @image)
+        format.html { redirect_to @image, notice: 'Rights metadata was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit_rights" }
