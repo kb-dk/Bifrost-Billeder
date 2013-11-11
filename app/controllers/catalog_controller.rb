@@ -24,6 +24,7 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
         :qf => 'title_tesim title_ssm author_tesim description_tesim local_tesim imagetype_tesim category_tesim fileidentifier_tesim keywords_tesim id copyright_tesim',
         :qt => 'search',
+        :fq => 'active_fedora_model_ssi:Image',
         :rows => 10
     }
 
@@ -67,7 +68,7 @@ class CatalogController < ApplicationController
 
 
     config.add_facet_field solr_name('genre', :facetable), :label => 'Genre:', :limit => 11
-    config.add_facet_field solr_name('copyright', :facetable), :label => 'License', :limit => 5
+    config.add_facet_field solr_name('copyright', :facetable), :label => 'Licens', :limit => 5
 
     #config.add_facet_field solr_name('category_tesim', :facetable, :show=>true), :label => 'Category'
 

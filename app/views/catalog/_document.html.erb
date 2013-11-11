@@ -5,8 +5,8 @@
         <div class="span3">
           <p>
             <%=
-                if document["path_to_image_ssm"].first.to_s.strip.length != 0
-                  image_tag ("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg"))
+                if (document["path_to_image_ssm"].to_s.strip.length != 0)
+                  image_tag ("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")) rescue nil
                 end
             %>
           </p>
