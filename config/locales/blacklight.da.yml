@@ -181,7 +181,7 @@ da:
       pagination:
         title: 'Results navigation'
       pagination_info:
-        no_items_found: 'Ingen opgaver fundet'
+        no_items_found: 'Ingen billeder fundet'
         single_item_found: '<strong>1</strong> to <strong>1</strong> of <strong>1</strong>'
         pages:
           one: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
