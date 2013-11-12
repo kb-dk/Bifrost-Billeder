@@ -1,10 +1,19 @@
   <% if has_user_authentication_provider? %>
     <div class="util-links-login">
       <% if current_user %>
-        <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %> <%= "[#{ link_to current_user, edit_user_registration_path }]".html_safe unless current_user.to_s.blank? %>
+          <!--div class="btn btn-mini btn-info navbar-btn"><%= "[#{ link_to current_user, edit_user_registration_path }]".html_safe unless current_user.to_s.blank? %></div-->
+          <div class="btn btn-mini btn-info navbar-btn"><%= current_user.to_s.html_safe unless current_user.to_s.blank? %></div>
+
+          <%= link_to (destroy_user_session_path) do %>
+              <div class="btn btn-mini btn-danger navbar-btn"><%= t('blacklight.header_links.logout') %> </div>
+
+    <% end %>
       <% else %>
-        <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
-      <% end %>
+        <%= link_to (new_user_session_path) do %>
+          <div class="btn btn-mini btn-info navbar-btn"><%= t('blacklight.header_links.login') %></div>
+          <% end %>
+
+    <% end %>
     </div>
 
   <% end %>
