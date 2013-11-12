@@ -1,85 +1,102 @@
-    <% # container for a single doc -%>
-    <div class="document <%= render_document_class document %>">
+<% # container for a single doc  -%>
+<div class="document <%= render_document_class document %>">
 
-      <div class="row-fluid">
-        <div class="span3">
-          <p>
+  <div class="row-fluid">
+
+    <div class="span3">
+
+
+
+
+
+
+      <p>
             <%=
                 if (document["path_to_image_ssm"].to_s.strip.length != 0)
-                  image_tag ("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")) rescue nil
-                end
+                  #image_tag ("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")) rescue nil
+
+                  link_to_document( document, :label=>(image_tag("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")) )) rescue nil
+
+
+                  # link_to( image_tag("http://www.kb.dk/imageService/w200/"+document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")),
+                    #       root_path, :class=>"work")     rescue nil
+
+
+
+      end
             %>
           </p>
-        </div>
-        <div class="span9 pull-right" style="text-align:right">
-          <%= render :partial => 'document_header', :locals => { :document => document, :document_counter => document_counter } %>
-          <% # main container for doc partial view -%>
-          <% # render_document_partial document, :index %>
-
-
-          <dl class="dl-horizontal dl-invert">
-
-
-                <dt><!--Resultat:--></dt>
-                <dd><%= t('blacklight.search.documents.counter', :counter => (document_counter + 1 + @response.params[:start].to_i)) %></dd>
-
-            <% if document["author_ssm"] %>
-                <dt class="">Forfatter:</dt>
-                <dd class=""><%= document["author_ssm"].first.html_safe rescue nil %></dd>
-            <% end %>
-
-            <% if document["imagetype_tesim"] %>
-                <dt class="">Type:</dt>
-                <dd class=""><%= document["imagetype_tesim"].first.html_safe rescue nil %></dd>
-            <% end %>
-
-            <% if document["category_ssm"] %>
-                <dt class="">Kategori:</dt>
-                <dd class="">
-                  <% document["category_ssm"].each do |cat|  %>
-                      <span class="badge"> <!-- class="label label-info"-->
-                        <%= cat.html_safe rescue nil %>
-                      </span>
-                  <% end %>
-                </dd>
-            <% end %>
-
-
-            <% if document["person_ssm"] %>
-                <dt class="">Person:</dt>
-                <dd class="">
-                  <% document["person_ssm"].each do |person|  %>
-                      <!--span class="label label-info"-->
-                       <span>
-                        <%= person.html_safe rescue nil %>
-                      </span>
-                  <% end %>
-                </dd>
-            <% end %>
-
-            <% if document["genre_ssm"] %>
-                <dt class="">Genre:</dt>
-                <dd class=""><%= document["genre_ssm"].first.html_safe rescue nil %></dd>
-            <% end %>
-
-
-            <% if document["local_ssm"] %>
-                <dt class="">Område:</dt>
-                <dd class=""><%= document["local_ssm"].to_sentence.html_safe rescue nil %></dd>
-            <% end %>
-
-            <% if document["copyright_ssm"] %>
-                <dt class="">Ophavsret:</dt>
-                <dd class=""><%= document["copyright_ssm"].to_sentence.html_safe rescue nil %></dd>
-            <% end %>
-
-
-          </dl>
-
-
-        </div>
-      </div>
-
 
 
     </div>
+    <div class="span9 pull-right" >
+      <%= render :partial => 'document_header', :locals => {:document => document, :document_counter => document_counter} %>
+      <% # main container for doc partial view  -%>
+      <% # render_document_partial document, :index  %>
+
+
+      <dl class="dl-horizontal dl-invert" style="text-align:right">
+
+
+        <dt><!--Resultat:--></dt>
+        <dd><%= t('blacklight.search.documents.counter', :counter => (document_counter + 1 + @response.params[:start].to_i)) %></dd>
+
+        <% if document["author_ssm"] %>
+            <dt class="">Forfatter:</dt>
+            <dd class=""><%= document["author_ssm"].first.html_safe rescue nil %></dd>
+        <% end %>
+
+        <% if document["imagetype_tesim"] %>
+            <dt class="">Type:</dt>
+            <dd class=""><%= document["imagetype_tesim"].first.html_safe rescue nil %></dd>
+        <% end %>
+
+        <% if document["category_ssm"] %>
+            <dt class="">Kategori:</dt>
+            <dd class="">
+              <% document["category_ssm"].each do |cat| %>
+                      <span class="badge"> <!-- class="label label-info"-->
+                        <%= cat.html_safe rescue nil %>
+                      </span>
+              <% end %>
+            </dd>
+        <% end %>
+
+
+        <% if document["person_ssm"] %>
+            <dt class="">Person:</dt>
+            <dd class="">
+              <% document["person_ssm"].each do |person| %>
+                  <!--span class="label label-info"-->
+                       <span>
+                        <%= person.html_safe rescue nil %>
+                      </span>
+              <% end %>
+            </dd>
+        <% end %>
+
+        <% if document["genre_ssm"] %>
+            <dt class="">Genre:</dt>
+            <dd class=""><%= document["genre_ssm"].first.html_safe rescue nil %></dd>
+        <% end %>
+
+
+        <% if document["local_ssm"] %>
+            <dt class="">Område:</dt>
+            <dd class=""><%= document["local_ssm"].to_sentence.html_safe rescue nil %></dd>
+        <% end %>
+
+        <% if document["copyright_ssm"] %>
+            <dt class="">Ophavsret:</dt>
+            <dd class=""><%= document["copyright_ssm"].to_sentence.html_safe rescue nil %></dd>
+        <% end %>
+
+
+      </dl>
+
+
+    </div>
+  </div>
+
+
+</div>

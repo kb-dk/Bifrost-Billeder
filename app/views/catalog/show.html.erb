@@ -8,7 +8,7 @@
 <div class="container-fluid" id="document">
   <div id="doc_<%= @document.id.to_s.parameterize %>">
     <p id="landingpage-image" class="row-fluid"><%= if (@document["path_to_image_ssm"].first.to_s.strip.length != 0)
-                                                      image_tag "http://www.kb.dk/imageService/w1600/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
+                                                      image_tag "http://www.kb.dk/imageService/w1200/"+@document["path_to_image_ssm"].first.to_s.sub('.tif', ".jpg")
                                                     end
     %></p>
 
