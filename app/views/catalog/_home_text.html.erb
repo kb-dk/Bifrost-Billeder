@@ -1,8 +1,22 @@
+<script type="text/javascript">
+   $( document ).ready(function() {
+       $('#admincontrols').hide();
+
+       $( '#toggle' ).on('click',function() {
+           $('#admincontrols').toggle();
+       });
+
+
+   });
+
+
+
+</script>
 <div class="page-header">
   <h3>Bifrost Billeder</h3>
 </div>
 
-<div class="hero-unit">
+<!--div class="hero-unit">
   <p>
     Formål:
   <ul>
@@ -17,7 +31,7 @@
   Næste version:
   <ul>
     <li>Generisk søgeinterface</li>
-    <!--li>Multiple datastreams</li-->
+    <li>Multiple datastreams</li>
     <li>OAI høstning via blacklight <a href="https://github.com/cbeer/blacklight_oai_provider">Blacklight oai provider</a></li>
     <li>LCSH i poster</li>
     <li>Semantisk annotering af udstillede data via vokabulariet fra <a href="schema.org">schema.org</a></li>
@@ -28,19 +42,15 @@
 
 
   </p>
-</div>
+</div-->
 
 <% if has_user_authentication_provider? and current_user %>
-
 <div class="container">
 
-  <div class="row">
-    <h4>Administration</h4>
-
-  </div>
 
 
-  <div class="row">
+  <div class="row"   name="admincontrols" id="admincontrols">
+      <h4>Administration</h4>
     <div class="col-lg-4">
       <div class="well well-large">
         <a href="/images/new/" class="btn btn-primary" title="New image" id="new"><i class="icon icon-large icon-plus icon-white"></i><span class="new" title="new">New image</span></a>

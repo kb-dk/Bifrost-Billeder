@@ -4,6 +4,7 @@
           <!--div class="btn btn-mini btn-info navbar-btn"><%= "[#{ link_to current_user, edit_user_registration_path }]".html_safe unless current_user.to_s.blank? %></div-->
           <div class="btn btn-mini btn-info navbar-btn"><%= current_user.to_s.html_safe unless current_user.to_s.blank? %></div>
 
+          <button name="toggle" id="toggle" class="btn btn-mini btn-primary" ><i class="icon icon-large icon-cog icon-white"></i></button>
           <%= link_to (destroy_user_session_path) do %>
               <div class="btn btn-mini btn-danger navbar-btn"><%= t('blacklight.header_links.logout') %> </div>
 
