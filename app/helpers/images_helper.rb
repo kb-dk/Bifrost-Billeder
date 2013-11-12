@@ -16,8 +16,9 @@ module ImagesHelper
     @image.genre = extracted_elements['Genre']
     locals = extracted_elements['Lokalitet'] || ''
     @image.local = locals.is_a?(Array) ? locals.uniq : locals.split(', ')
-    categories = extracted_elements['Categories'].split(', ')  || ''
-    @image.category = categories.is_a?(Array) ? categories.uniq : categories.split(', ')
+    #categories = extracted_elements['Category'].split(', ')  || ''
+    #@image.category = categories.is_a?(Array) ? categories.uniq : categories.split(', ')
+    @image.category = extracted_elements['Category']
     @image.fileidentifier = extracted_elements['Record Name']
     @image.imagetype = extracted_elements['Materialebetegnelse']
     @image.imagetype ||= extracted_elements['Generel materialebetegnelse']
