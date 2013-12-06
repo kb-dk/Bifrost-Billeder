@@ -64,7 +64,7 @@ module SIFDBilleder
 
     # Configuration for CAS authentication
     config.cas = {
-        :host => 'www.kb.dk',
+        :host => 'user.kb.dk',
         :login_url => '/cas/login',
         :service_validate_url => '/cas/serviceValidate',
         :ssl => true
